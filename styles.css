@@ -99,3 +99,23 @@ body {
 .x-go-btn:hover, .instagram-go-btn:hover {
   opacity: 0.6;
 }
+
+.social-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  padding: 30px 0;
+}
+
+.social-footer a {
+  color: #333333; /* Default icon color */
+  font-size: 24px; /* Icon size */
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-footer a:hover {
+  color: #000000; /* Darker color on hover */
+  transform: translateY(-4px); /* Smooth lift effect on hover */
+}
