@@ -1,0 +1,101 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.heading-txt {
+  font-family: 'Chelsea Market', cursive;
+  font-size: 40px;
+  margin-bottom: -80px;
+}
+
+.center-part {
+  margin-top: -60px;
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 95vh;
+}
+
+.description-txt {
+  background-color: rgb(255, 255, 255);
+  margin-top: 10px;
+  font-family: 'Google Sans Code', monospace;
+  color: rgb(0, 0, 0);
+  width: 600px;
+  margin-bottom: 20px;
+}
+
+.p1-txt, .p2-txt {
+  text-align: center;
+  margin: 8px 0; 
+}
+
+.projects-interactive-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+  height: 40px;
+}
+
+.toggle-btn {
+  font-family: 'Google Sans Code', monospace;
+  font-size: 14px;
+  background-color: transparent;
+  color: black;
+  border: 1px solid black;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.toggle-btn:hover {
+  background-color: black;
+  color: white;
+}
+
+.slider-container {
+  display: grid;
+  grid-template-columns: 0fr;
+  transition: grid-template-columns 0.5s ease;
+}
+
+.slider-container.show {
+  grid-template-columns: 1fr;
+}
+
+.buttons-line {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  overflow: hidden;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(-20px);
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.5s ease;
+}
+
+.slider-container.show .buttons-line {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+.x-go-btn, .instagram-go-btn {
+  font-family: 'Google Sans Code', monospace;
+  font-size: 16px;
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.x-go-btn:hover, .instagram-go-btn:hover {
+  opacity: 0.6;
+}
