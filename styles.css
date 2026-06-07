@@ -48,7 +48,10 @@ header a:hover {
   margin-top: 10px;
   font-family: 'Google Sans Code', monospace;
   color: rgb(0, 0, 0);
-  width: 600px;
+  width: 100%;
+  max-width: 600px;
+  padding: 0 20px;
+  box-sizing: border-box;
   margin-bottom: 20px;
 }
 
@@ -189,4 +192,68 @@ header a:hover {
 html {
   scrollbar-width: thin;
   scrollbar-color: #ccc transparent;
+}
+
+/* Responsive Design for Tablets and Mobiles */
+@media screen and (max-width: 768px) {
+  .heading-txt {
+    font-size: 36px;
+    margin-bottom: -40px;
+  }
+  .center-part {
+    margin-top: -30px;
+    height: auto;
+    min-height: 75vh;
+    padding: 40px 0;
+  }
+  .social-footer {
+    gap: 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  header {
+    gap: 15px;
+    padding: 15px 0;
+  }
+  .heading-txt {
+    font-size: 30px;
+    margin-bottom: -20px;
+  }
+  .center-part {
+    margin-top: 0;
+  }
+  .description-txt {
+    font-size: 14px;
+  }
+  .projects-interactive-area {
+    flex-direction: column;
+    height: auto;
+    gap: 15px;
+  }
+  .slider-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.5s ease;
+  }
+  .slider-container.show {
+    grid-template-rows: 1fr;
+  }
+  .buttons-line {
+    flex-direction: column;
+    gap: 10px;
+    transform: translateY(-20px);
+    transition: opacity 0.4s ease, transform 0.5s ease;
+  }
+  .slider-container.show .buttons-line {
+    transform: translateY(0);
+  }
+  .social-footer {
+    gap: 15px;
+    padding: 20px 0;
+    flex-wrap: wrap;
+  }
+  .social-footer a {
+    font-size: 20px;
+  }
 }
