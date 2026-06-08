@@ -1,6 +1,26 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const goUpBtn = document.getElementById("goUpBtn");
+  const heading = document.querySelector(".heading-txt h1");
+  const originalText = "UI Clones";
+  
+  if (heading && document.body.classList.contains("site-loading")) {
+    heading.textContent = "";
+    
+    let i = 0;
+    const typeInterval = setInterval(() => {
+      heading.textContent += originalText.charAt(i);
+      i++;
+      if (i >= originalText.length) {
+        clearInterval(typeInterval);
+        
+        setTimeout(() => {
+          heading.style.borderRight = "none";
+          document.body.classList.remove("site-loading");
+        }, 400);
+      }
+    }, 150);
+  }
 
+  const goUpBtn = document.getElementById("goUpBtn");
   if (goUpBtn) {
     window.addEventListener("scroll", () => {
       if (window.scrollY > 300) {

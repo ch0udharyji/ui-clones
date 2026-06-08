@@ -80,7 +80,7 @@ header a:hover {
   background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(8px);
   border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 100px; /* Elegant pill shape */
+  border-radius: 100px;
   padding: 16px 24px;
   text-decoration: none;
   color: #111;
@@ -136,7 +136,7 @@ header a:hover {
 
 .minimal-card:hover .minimal-card-right i {
   color: #000;
-  transform: translateX(3px) rotate(-45deg); /* Sleek diagonal arrow on hover */
+  transform: translateX(3px) rotate(-45deg);
 }
 
 .social-footer {
@@ -243,7 +243,6 @@ html {
   scrollbar-color: #ccc transparent;
 }
 
-/* Responsive Design for Tablets and Mobiles */
 @media screen and (max-width: 768px) {
   .heading-txt {
     font-size: 36px;
@@ -305,6 +304,38 @@ html {
   .social-footer a {
     font-size: 20px;
   }
+}
+
+body.site-loading {
+  overflow: hidden;
+}
+
+body.site-loading header,
+body.site-loading .description-txt,
+body.site-loading .projects-grid,
+body.site-loading .social-footer {
+  opacity: 0;
+  pointer-events: none;
+}
+
+header, .description-txt, .projects-grid, .social-footer {
+  transition: opacity 1.5s ease-in-out;
+  will-change: opacity;
+}
+
+.heading-txt h1 {
+  display: inline-block;
+  padding-right: 5px;
+}
+
+body.site-loading .heading-txt h1 {
+  border-right: 3px solid black;
+  animation: blink-caret 0.75s step-end infinite;
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: black; }
 }
 
 .loading-overlay {

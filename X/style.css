@@ -33,7 +33,6 @@ body {
   margin: 0 auto;
 }
 
-/* LEFT SIDEBAR */
 .sidebar {
   width: 275px;
   display: flex;
@@ -199,7 +198,6 @@ body {
   margin-left: auto;
 }
 
-/* MAIN FEED */
 .feed {
   width: 600px;
   border-left: 1px solid var(--border-color);
@@ -313,7 +311,6 @@ body {
   background-color: var(--blue-bg-hover);
 }
 
-/* POSTS */
 .post {
   display: flex;
   padding: 16px;
@@ -441,7 +438,6 @@ body {
   color: var(--blue);
 }
 
-/* RIGHT SIDEBAR */
 .right-sidebar {
   width: 350px;
   padding: 0 0 0 24px;

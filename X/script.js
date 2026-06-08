@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Auto-resize textarea
     const textarea = document.querySelector('.compose-right textarea');
     const postBtn = document.querySelector('.compose-actions .post-btn');
 
@@ -16,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Tabs switching
     const tabs = document.querySelectorAll('.tab');
     tabs.forEach(tab => {
         tab.addEventListener('click', () => {
