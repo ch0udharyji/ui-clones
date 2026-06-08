@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
       loginBtn.disabled = true;
 
       setTimeout(() => {
-        window.location.href = "../Home/x-home.html";
+        window.location.href = "../index.html";
       }, 1500);
     }
   });

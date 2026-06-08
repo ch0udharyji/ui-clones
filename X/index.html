@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home / X</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Left Sidebar -->
+        <header class="sidebar">
+            <div class="sidebar-container">
+                <div class="logo">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><g><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.008 5.96H5.078z"></path></g></svg>
+                </div>
+                <nav class="nav-links">
+                    <a href="#" class="nav-item active"><i class="fa-solid fa-house"></i><span class="nav-text">Home</span></a>
+                    <a href="#" class="nav-item"><i class="fa-solid fa-magnifying-glass"></i><span class="nav-text">Explore</span></a>
+                    <a href="#" class="nav-item"><i class="fa-regular fa-bell"></i><span class="nav-text">Notifications</span></a>
+                    <a href="#" class="nav-item"><i class="fa-regular fa-envelope"></i><span class="nav-text">Messages</span></a>
+                    <a href="#" class="nav-item"><i class="fa-regular fa-square-minus"></i><span class="nav-text">Grok</span></a>
+                    <a href="#" class="nav-item"><i class="fa-regular fa-list-alt"></i><span class="nav-text">Lists</span></a>
+                    <a href="#" class="nav-item"><i class="fa-regular fa-bookmark"></i><span class="nav-text">Bookmarks</span></a>
+                    <a href="#" class="nav-item"><i class="fa-solid fa-user-group"></i><span class="nav-text">Communities</span></a>
+                    <a href="#" class="nav-item"><i class="fa-brands fa-x-twitter"></i><span class="nav-text">Premium</span></a>
+                    <a href="#" class="nav-item"><i class="fa-regular fa-user"></i><span class="nav-text">Profile</span></a>
+                    <a href="#" class="nav-item"><i class="fa-solid fa-ellipsis"></i><span class="nav-text">More</span></a>
+                </nav>
+                <button class="post-btn">
+                    <span class="post-text">Post</span>
+                    <i class="fa-solid fa-feather-pointed post-icon"></i>
+                </button>
+                <div class="profile-pill">
+                    <img class="profile-pic" src="https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png" alt="Profile">
+                    <div class="profile-info">
+                        <div class="name">User Name</div>
+                        <div class="handle">@username</div>
+                    </div>
+                    <i class="fa-solid fa-ellipsis ellipsis-icon"></i>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Feed -->
+        <main class="feed">
+            <div class="feed-header">
+                <div class="tabs">
+                    <div class="tab active"><span>For you</span></div>
+                    <div class="tab"><span>Following</span></div>
+                </div>
+            </div>
+            
+            <div class="compose-tweet">
+                <img class="profile-pic" src="https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png" alt="Profile">
+                <div class="compose-right">
+                    <textarea placeholder="What is happening?!"></textarea>
+                    <div class="compose-actions">
+                        <div class="action-icons">
+                            <i class="fa-regular fa-image"></i>
+                            <i class="fa-solid fa-film"></i>
+                            <i class="fa-solid fa-list-ul"></i>
+                            <i class="fa-regular fa-face-smile"></i>
+                            <i class="fa-regular fa-calendar"></i>
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <button class="post-btn small" disabled>Post</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="posts-list">
+                <!-- Example Post 1 -->
+                <div class="post">
+                    <img class="profile-pic" src="https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png" alt="Profile">
+                    <div class="post-content">
+                        <div class="post-header">
+                            <span class="name">Elon Musk</span>
+                            <i class="fa-solid fa-circle-check verified"></i>
+                            <span class="handle">@elonmusk</span>
+                            <span class="dot">·</span>
+                            <span class="time">2h</span>
+                            <i class="fa-solid fa-ellipsis more-icon"></i>
+                        </div>
+                        <div class="post-text">Just setting up my twttr... wait.</div>
+                        <div class="post-actions">
+                            <div class="action"><div class="icon-container"><i class="fa-regular fa-comment"></i></div><span>12K</span></div>
+                            <div class="action"><div class="icon-container"><i class="fa-solid fa-retweet"></i></div><span>5K</span></div>
+                            <div class="action"><div class="icon-container"><i class="fa-regular fa-heart"></i></div><span>100K</span></div>
+                            <div class="action"><div class="icon-container"><i class="fa-solid fa-chart-bar"></i></div><span>1M</span></div>
+                            <div class="action flex-end">
+                                <div class="icon-container"><i class="fa-regular fa-bookmark"></i></div>
+                                <div class="icon-container"><i class="fa-solid fa-arrow-up-from-bracket"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Example Post 2 -->
+                <div class="post">
+                    <img class="profile-pic" src="https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png" alt="Profile">
+                    <div class="post-content">
+                        <div class="post-header">
+                            <span class="name">Google</span>
+                            <i class="fa-solid fa-circle-check verified gold"></i>
+                            <span class="handle">@Google</span>
+                            <span class="dot">·</span>
+                            <span class="time">4h</span>
+                            <i class="fa-solid fa-ellipsis more-icon"></i>
+                        </div>
+                        <div class="post-text">Exciting things are coming to AI. Stay tuned for the next big update.</div>
+                        <div class="post-image-container">
+                            <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1000&auto=format&fit=crop" class="post-image" alt="AI abstract">
+                        </div>
+                        <div class="post-actions">
+                            <div class="action"><div class="icon-container"><i class="fa-regular fa-comment"></i></div><span>4,291</span></div>
+                            <div class="action"><div class="icon-container"><i class="fa-solid fa-retweet"></i></div><span>1,832</span></div>
+                            <div class="action"><div class="icon-container"><i class="fa-regular fa-heart"></i></div><span>24K</span></div>
+                            <div class="action"><div class="icon-container"><i class="fa-solid fa-chart-bar"></i></div><span>300K</span></div>
+                            <div class="action flex-end">
+                                <div class="icon-container"><i class="fa-regular fa-bookmark"></i></div>
+                                <div class="icon-container"><i class="fa-solid fa-arrow-up-from-bracket"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Right Sidebar -->
+        <aside class="right-sidebar">
+            <div class="search-bar">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Search">
+            </div>
+            
+            <div class="widget subscribe-widget">
+                <h2>Subscribe to Premium</h2>
+                <p>Subscribe to unlock new features and if eligible, receive a share of ads revenue.</p>
+                <button class="subscribe-btn">Subscribe</button>
+            </div>
+
+            <div class="widget trends-widget">
+                <h2>What's happening</h2>
+                <div class="trend">
+                    <div class="trend-category">Technology · Trending</div>
+                    <div class="trend-title">Artificial Intelligence</div>
+                    <div class="trend-posts">1.5M posts</div>
+                    <i class="fa-solid fa-ellipsis"></i>
+                </div>
+                <div class="trend">
+                    <div class="trend-category">Sports · Trending</div>
+                    <div class="trend-title">Champions League</div>
+                    <div class="trend-posts">850K posts</div>
+                    <i class="fa-solid fa-ellipsis"></i>
+                </div>
+                <div class="trend">
+                    <div class="trend-category">Trending in World</div>
+                    <div class="trend-title">#BreakingNews</div>
+                    <div class="trend-posts">500K posts</div>
+                    <i class="fa-solid fa-ellipsis"></i>
+                </div>
+                <div class="show-more">Show more</div>
+            </div>
+
+            <div class="widget follow-widget">
+                <h2>Who to follow</h2>
+                <div class="follow-item">
+                    <img class="profile-pic" src="https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png" alt="Profile">
+                    <div class="follow-info">
+                        <div class="name">SpaceX <i class="fa-solid fa-circle-check verified"></i></div>
+                        <div class="handle">@SpaceX</div>
+                    </div>
+                    <button class="follow-btn">Follow</button>
+                </div>
+                <div class="follow-item">
+                    <img class="profile-pic" src="https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png" alt="Profile">
+                    <div class="follow-info">
+                        <div class="name">NASA <i class="fa-solid fa-circle-check verified"></i></div>
+                        <div class="handle">@NASA</div>
+                    </div>
+                    <button class="follow-btn">Follow</button>
+                </div>
+                <div class="show-more">Show more</div>
+            </div>
+            
+            <footer class="right-footer">
+                <a href="#">Terms of Service</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Cookie Policy</a>
+                <a href="#">Accessibility</a>
+                <a href="#">Ads info</a>
+                <a href="#">More ...</a>
+                <span>© 2026 X Corp.</span>
+            </footer>
+        </aside>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
