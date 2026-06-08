@@ -34,13 +34,15 @@ header a:hover {
 }
 
 .center-part {
-  margin-top: -60px;
+  margin-top: 0;
+  padding-top: 40px;
+  padding-bottom: 120px;
   font-size: 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 85vh;
+  justify-content: flex-start;
+  min-height: 85vh;
 }
 
 .description-txt {
@@ -60,79 +62,126 @@ header a:hover {
   margin: 8px 0; 
 }
 
-.projects-interactive-area {
+.projects-grid {
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 15px;
-  margin-top: 10px;
-  height: 40px;
+  gap: 24px;
+  width: 100%;
+  max-width: 800px;
+  margin-top: 40px;
 }
 
-.toggle-btn {
+.minimal-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 260px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 100px; /* Elegant pill shape */
+  padding: 16px 24px;
+  text-decoration: none;
+  color: #111;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.minimal-card:hover {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.2);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.minimal-card-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.minimal-card-left i {
+  font-size: 24px;
+}
+
+.x-logo-icon {
+  color: #000;
+}
+
+.insta-gradient {
+  background: -webkit-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.project-title {
   font-family: 'Google Sans Code', monospace;
+  font-weight: 600;
+  font-size: 16px;
+  margin: 0;
+  color: #111;
+}
+
+.minimal-card-right {
+  display: flex;
+  align-items: center;
+}
+
+.minimal-card-right i {
   font-size: 14px;
-  background-color: transparent;
-  color: black;
-  border: 1px solid black;
-  padding: 8px 16px;
-  border-radius: 20px;
-  cursor: pointer;
+  color: #999;
   transition: all 0.3s ease;
 }
 
-.toggle-btn:hover {
-  background-color: black;
-  color: white;
-}
-
-.slider-container {
-  display: grid;
-  grid-template-columns: 0fr;
-  transition: grid-template-columns 0.5s ease;
-}
-
-.slider-container.show {
-  grid-template-columns: 1fr;
-}
-
-.buttons-line {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  overflow: hidden;
-  white-space: nowrap;
-  opacity: 0;
-  transform: translateX(-20px);
-  pointer-events: none;
-  transition: opacity 0.4s ease, transform 0.5s ease;
-}
-
-.slider-container.show .buttons-line {
-  opacity: 1;
-  transform: translateX(0);
-  pointer-events: auto;
-}
-
-.x-go-btn, .instagram-go-btn {
-  font-family: 'Google Sans Code', monospace;
-  font-size: 16px;
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-  transition: opacity 0.2s;
-}
-
-.x-go-btn:hover, .instagram-go-btn:hover {
-  opacity: 0.6;
+.minimal-card:hover .minimal-card-right i {
+  color: #000;
+  transform: translateX(3px) rotate(-45deg); /* Sleek diagonal arrow on hover */
 }
 
 .social-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  z-index: 100;
+  border-top: 1px solid #eaeaea;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 24px;
-  padding: 30px 0;
+  padding: 20px 0;
+}
+
+.go-up-btn {
+  position: fixed;
+  bottom: 100px;
+  right: 30px;
+  background-color: black;
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-size: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 99;
+}
+
+.go-up-btn.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.go-up-btn:hover {
+  transform: translateY(-5px);
 }
 
 .social-footer a {

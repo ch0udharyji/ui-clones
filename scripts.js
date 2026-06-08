@@ -1,16 +1,18 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const toggleBtn = document.getElementById("toggleBtn");
-  const slider = document.getElementById("slider");
+  const goUpBtn = document.getElementById("goUpBtn");
 
-  if (toggleBtn && slider) {
-    toggleBtn.addEventListener("click", () => {
-      slider.classList.toggle("show");
-      
-      if (slider.classList.contains("show")) {
-        toggleBtn.textContent = "Hide Clones";
+  if (goUpBtn) {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) {
+        goUpBtn.classList.add("visible");
       } else {
-        toggleBtn.textContent = "View Clones";
+        goUpBtn.classList.remove("visible");
       }
+    });
+
+    goUpBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
     });
   }
 
