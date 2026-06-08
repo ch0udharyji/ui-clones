@@ -655,3 +655,26 @@ body {
   .nav-item { margin: 0; padding: 8px; }
   .feed { margin-bottom: 60px; border: none; }
 }
+
+.go-back-btn {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.2s;
+  z-index: 1000;
+  backdrop-filter: blur(8px);
+}
+
+.go-back-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
