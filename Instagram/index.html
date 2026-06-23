@@ -5,216 +5,221 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instagram</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/174/174855.png">
     <link href="https://fonts.googleapis.com/css2?family=Grand+Hotel&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet">
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/174/174855.png">
 </head>
 <body>
     <div class="app-container">
-        <nav class="sidebar">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar" id="sidebar">
             <div class="logo">
-                <h1 class="logo-text" style="font-family: 'Grand Hotel', cursive; font-size: 36px; font-weight: 400; margin: 0;">Instagram</h1>
+                <h1 class="logo-text">Instagram</h1>
             </div>
             <ul class="nav-links">
-                <li><a href="#" class="active" id="home-nav-btn"><span class="material-icons">home</span><span class="nav-text">Home</span></a></li>
-                <li><a href="#" id="search-nav-btn"><span class="material-icons-outlined">search</span><span class="nav-text">Search</span></a></li>
-                <li><a href="#" id="explore-nav-btn"><span class="material-icons-outlined">explore</span><span class="nav-text">Explore</span></a></li>
-                <li><a href="#" id="reels-nav-btn"><span class="material-icons-outlined">movie</span><span class="nav-text">Reels</span></a></li>
-                <li><a href="#" id="messages-nav-btn"><span class="material-icons-outlined">chat</span><span class="nav-text">Messages</span></a></li>
-                <li><a href="#" id="notifications-nav-btn"><span class="material-icons-outlined">favorite_border</span><span class="nav-text">Notifications</span></a></li>
-                <li><a href="#" id="create-post-btn"><span class="material-icons-outlined">add_box</span><span class="nav-text">Create</span></a></li>
-                <li><a href="#" id="profile-nav-btn"><img src="https://randomuser.me/api/portraits/men/11.jpg" alt="Profile" class="nav-profile-pic"><span class="nav-text">Profile</span></a></li>
+                <li><a href="#" class="active" data-view="home" id="nav-home"><span class="material-icons">home</span><span class="nav-text">Home</span></a></li>
+                <li><a href="#" data-panel="search" id="nav-search"><span class="material-icons-outlined">search</span><span class="nav-text">Search</span></a></li>
+                <li><a href="#" data-view="explore" id="nav-explore"><span class="material-icons-outlined">explore</span><span class="nav-text">Explore</span></a></li>
+                <li><a href="#" data-view="reels" id="nav-reels"><span class="material-icons-outlined">movie</span><span class="nav-text">Reels</span></a></li>
+                <li><a href="#" data-view="messages" id="nav-messages"><span class="material-icons-outlined">chat</span><span class="nav-text">Messages</span></a></li>
+                <li><a href="#" data-panel="notifications" id="nav-notifications"><span class="material-icons-outlined">favorite_border</span><span class="nav-text">Notifications</span></a></li>
+                <li><a href="#" id="nav-create"><span class="material-icons-outlined">add_box</span><span class="nav-text">Create</span></a></li>
+                <li><a href="#" data-view="profile" id="nav-profile"><img src="https://randomuser.me/api/portraits/men/11.jpg" alt="Profile" class="nav-profile-pic"><span class="nav-text">Profile</span></a></li>
             </ul>
-            <div class="more-menu">
-                <a href="login.html"><span class="material-icons-outlined">logout</span><span class="nav-text">Log out</span></a>
-                <a href="#"><span class="material-icons-outlined">menu</span><span class="nav-text">More</span></a>
+            <div class="sidebar-more">
+                <ul class="nav-links">
+                    <li><a href="login.html"><span class="material-icons-outlined">logout</span><span class="nav-text">Logout</span></a></li>
+                </ul>
             </div>
         </nav>
-        <div class="search-panel" id="search-panel">
-            <div class="search-panel-header">
+
+        <!-- Slide Panels (Search / Notifications) -->
+        <div class="slide-panel" id="search-panel">
+            <div class="panel-header">
                 <h2>Search</h2>
-                <div class="search-input-container">
-                    <span class="material-icons-outlined search-icon">search</span>
+                <div class="panel-search-bar">
                     <input type="text" id="search-input" placeholder="Search">
-                    <span class="material-icons-outlined clear-search" id="clear-search-btn" style="display: none;">cancel</span>
                 </div>
             </div>
-            <div class="search-results-container">
-                <div class="search-results-header">
-                    <span class="recent-text">Recent</span>
-                    <span class="clear-all-text" id="clear-all-search">Clear all</span>
-                </div>
-                <div class="search-results-list" id="search-results-list">
-                </div>
+            <div class="panel-content" id="search-results">
+                <!-- Search results injected here -->
             </div>
         </div>
-        <div class="search-panel" id="notifications-panel">
-            <div class="search-panel-header">
+
+        <div class="slide-panel" id="notifications-panel">
+            <div class="panel-header">
                 <h2>Notifications</h2>
             </div>
-            <div class="search-results-container">
-                <div class="search-results-header">
-                    <span class="recent-text">This Week</span>
-                </div>
-                <div class="search-results-list" id="notifications-list">
-                </div>
+            <div class="panel-content" id="notifications-list">
+                <!-- Notifications injected here -->
             </div>
         </div>
-        <main class="main-content">
-            <div class="feed-container" id="home-view">
-                <div class="stories-container">
-                    <div class="story">
-                        <div class="story-ring">
-                            <img src="https://randomuser.me/api/portraits/men/11.jpg" alt="Your Story">
-                        </div>
-                        <span class="story-user">Your story</span>
+
+        <!-- Main Content Area -->
+        <main class="main-content" id="main-content">
+            
+            <!-- Home / Feed View -->
+            <div class="view-section" id="view-home" style="display: flex;">
+                <div class="feed-container">
+                    <div class="stories-container" id="stories-container">
+                        <!-- Stories injected via JS -->
+                    </div>
+                    <div id="posts-container">
+                        <!-- Posts injected via JS -->
                     </div>
                 </div>
-                <div class="posts-feed">
+                <div class="right-sidebar">
+                    <div class="right-profile">
+                        <img src="https://randomuser.me/api/portraits/men/11.jpg" alt="User">
+                        <div class="right-profile-info">
+                            <div class="username">billu_coder</div>
+                            <div class="fullname">Billu</div>
+                        </div>
+                        <div class="switch-btn">Switch</div>
+                    </div>
+                    <div class="suggestions-header">
+                        <span>Suggested for you</span>
+                        <span>See All</span>
+                    </div>
+                    <div id="suggestions-container">
+                        <!-- Suggestions injected via JS -->
+                    </div>
+                    <div class="footer-links">
+                        <a href="#">About</a> • <a href="#">Help</a> • <a href="#">Press</a> • <a href="#">API</a> • <a href="#">Jobs</a> • <a href="#">Privacy</a> • <a href="#">Terms</a>
+                    </div>
+                    <div class="footer-copyright">
+                        © 2026 INSTAGRAM CLONE
+                    </div>
                 </div>
             </div>
-            <aside class="right-sidebar" id="right-sidebar">
-                <div class="user-profile-mini">
-                    <img src="https://randomuser.me/api/portraits/men/11.jpg" alt="Profile">
-                    <div class="user-info">
-                        <span class="username">billudev</span>
-                        <span class="fullname">Billu Dev</span>
-                    </div>
-                    <a href="login.html" class="switch-btn" style="text-decoration: none; display: inline-block; padding: 0;">Switch</a>
-                </div>
-                <div class="suggestions-header">
-                    <span>Suggested for you</span>
-                    <a href="#">See All</a>
-                </div>
-                <div class="suggestions-list">
-                </div>
-                <div class="footer-links">
-                    <a href="#">About</a> &bull; <a href="#">Help</a> &bull; <a href="#">Press</a> &bull; <a href="#">API</a> &bull; <a href="#">Jobs</a> &bull; <a href="#">Privacy</a> &bull; <a href="#">Terms</a>
-                    <br><br>
-                    <span>&copy; 2026 INSTAGRAM FROM META</span>
-                </div>
-            </aside>
-            <div class="explore-container" id="explore-view" style="display: none;">
+
+            <!-- Explore View -->
+            <div class="view-section" id="view-explore" style="display: none; padding-top: 30px; width: 100%;">
                 <div class="explore-grid" id="explore-grid">
+                    <!-- Grid items injected here -->
                 </div>
             </div>
-            <div class="reels-container" id="reels-view" style="display: none;">
-            </div>
-            <div class="messages-container" id="messages-view" style="display: none;">
-                <div class="messages-sidebar">
-                    <div class="messages-header">
-                        <h2>billudev</h2>
-                        <span class="material-icons-outlined">edit_square</span>
-                    </div>
-                    <div class="messages-list" id="messages-list">
-                    </div>
-                </div>
-                <div class="messages-chat">
-                    <div class="chat-placeholder">
-                        <span class="material-icons-outlined chat-icon">maps_ugc</span>
-                        <h3>Your Messages</h3>
-                        <p>Send private photos and messages to a friend or group.</p>
-                        <button class="primary-btn">Send Message</button>
-                    </div>
+
+            <!-- Reels View -->
+            <div class="view-section" id="view-reels" style="display: none; width: 100%;">
+                <div class="reels-container" id="reels-container">
+                    <!-- Reels injected here -->
                 </div>
             </div>
-            <div class="profile-container" id="profile-view" style="display: none;">
-                <div class="profile-header">
-                    <div class="profile-pic-large">
-                        <img src="https://randomuser.me/api/portraits/men/11.jpg" alt="Profile">
-                    </div>
-                    <div class="profile-details">
-                        <div class="profile-title-row">
-                            <h2>billudev</h2>
-                            <button class="primary-btn" style="background-color: var(--border-color); color: var(--text-color);">Edit profile</button>
-                            <button class="primary-btn" style="background-color: var(--border-color); color: var(--text-color);">View archive</button>
-                            <span class="material-icons-outlined">settings</span>
+
+            <!-- Messages View -->
+            <div class="view-section" id="view-messages" style="display: none; width: 100%;">
+                <div class="messages-container">
+                    <div class="messages-sidebar">
+                        <div class="messages-header">
+                            <h2>billu_coder</h2>
                         </div>
-                        <div class="profile-stats">
-                            <span><strong>18</strong> posts</span>
-                            <span><strong>254</strong> followers</span>
-                            <span><strong>310</strong> following</span>
+                        <div class="messages-list" id="messages-list">
+                            <!-- Messages injected here -->
                         </div>
-                        <div class="profile-bio">
-                            <span class="fullname">Billu Dev</span>
-                            <p>Web Developer | Designer<br>Building cool UI clones! 🚀</p>
+                    </div>
+                    <div class="messages-chat">
+                        <div class="chat-placeholder">
+                            <span class="material-icons-outlined" style="font-size: 96px;">send</span>
+                            <h2>Your Messages</h2>
+                            <p style="color: var(--text-secondary);">Send private photos and messages to a friend or group.</p>
+                            <button style="background-color: var(--primary-color); color: white; border: none; padding: 8px 16px; border-radius: 8px; font-weight: 600; cursor: pointer; margin-top: 10px;">Send Message</button>
                         </div>
                     </div>
                 </div>
-                <div class="profile-tabs">
-                    <div class="tab active"><span class="material-icons-outlined">grid_on</span> POSTS</div>
-                    <div class="tab"><span class="material-icons-outlined">bookmark_border</span> SAVED</div>
-                    <div class="tab"><span class="material-icons-outlined">assignment_ind</span> TAGGED</div>
-                </div>
-                <div class="explore-grid" id="profile-grid">
+            </div>
+
+            <!-- Profile View -->
+            <div class="view-section" id="view-profile" style="display: none; width: 100%;">
+                <div class="profile-container">
+                    <div class="profile-header">
+                        <div class="profile-pic-large">
+                            <img src="https://randomuser.me/api/portraits/men/11.jpg" alt="Profile Pic">
+                        </div>
+                        <div class="profile-details">
+                            <div class="profile-title-row">
+                                <h2>billu_coder</h2>
+                                <button>Edit profile</button>
+                                <button>View archive</button>
+                                <span class="material-icons-outlined" style="cursor: pointer;">settings</span>
+                            </div>
+                            <div class="profile-stats">
+                                <span><strong>12</strong> posts</span>
+                                <span style="cursor:pointer"><strong>245</strong> followers</span>
+                                <span style="cursor:pointer"><strong>199</strong> following</span>
+                            </div>
+                            <div class="profile-bio">
+                                <div class="fullname">Billu</div>
+                                <div>Passionate Web Developer 🚀<br>Building awesome UI clones.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile-tabs">
+                        <div class="tab active"><span class="material-icons-outlined" style="font-size: 16px;">grid_on</span> POSTS</div>
+                        <div class="tab"><span class="material-icons-outlined" style="font-size: 16px;">bookmark_border</span> SAVED</div>
+                        <div class="tab"><span class="material-icons-outlined" style="font-size: 16px;">portrait</span> TAGGED</div>
+                    </div>
+                    <div class="profile-grid" id="profile-grid">
+                        <!-- Profile posts injected here -->
+                    </div>
                 </div>
             </div>
+
         </main>
     </div>
-    <div class="story-viewer-overlay" id="story-viewer">
-        <div class="story-viewer-header">
-            <div class="story-progress">
-                <div class="progress-bar"><div class="progress-fill" id="story-progress-fill"></div></div>
+
+    <!-- Create Post Modal -->
+    <div class="modal-overlay" id="create-modal" style="display: none;">
+        <div class="create-post-content">
+            <div class="create-post-header">
+                <h2>Create new post</h2>
+                <span class="material-icons" style="cursor: pointer; color: var(--primary-color);" onclick="document.getElementById('create-modal').style.display='none'">close</span>
             </div>
-            <div class="story-user-info">
-                <img src="" alt="User" id="story-user-img">
-                <span id="story-user-name">username</span>
-                <span class="story-time">2h</span>
-            </div>
-            <div class="story-actions">
-                <span class="material-icons-outlined">play_arrow</span>
-                <span class="material-icons-outlined">volume_up</span>
-                <span class="material-icons-outlined" id="close-story-btn" style="cursor: pointer;">close</span>
-            </div>
-        </div>
-        <div class="story-content">
-            <img src="" alt="Story Content" id="story-content-img">
-            <div class="story-nav left" id="story-nav-prev"></div>
-            <div class="story-nav right" id="story-nav-next"></div>
-        </div>
-        <div class="story-footer">
-            <input type="text" placeholder="Reply to username...">
-            <span class="material-icons-outlined">favorite_border</span>
-            <span class="material-icons-outlined">send</span>
-        </div>
-    </div>
-    <div class="modal-overlay" id="create-modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div style="width: 24px;"></div>
-                <span>Create new post</span>
-                <span class="material-icons-outlined close-modal" id="close-modal-btn">close</span>
-            </div>
-            <div class="modal-body">
-                <span class="material-icons-outlined large-icon">photo_library</span>
-                <h2>Drag photos and videos here</h2>
-                <button class="primary-btn">Select from computer</button>
+            <div class="create-post-body">
+                <span class="material-icons-outlined">photo_library</span>
+                <p style="font-size: 20px; font-weight: 300; margin-bottom: 20px;">Drag photos and videos here</p>
+                <button>Select from computer</button>
             </div>
         </div>
     </div>
-    <div class="modal-overlay" id="post-view-modal" style="display: none; z-index: 2500;">
-        <span class="material-icons-outlined" id="close-post-view-btn" style="position: absolute; top: 20px; right: 20px; color: white; font-size: 32px; cursor: pointer;">close</span>
+
+    <!-- Story Viewer Modal -->
+    <div class="modal-overlay" id="story-modal" style="display: none;">
+        <div style="position: absolute; top: 20px; right: 20px; cursor: pointer; color: white; font-size: 30px;" onclick="closeStory()">
+            <span class="material-icons">close</span>
+        </div>
+        <div class="story-viewer-content">
+            <button class="story-nav-btn" id="story-prev" onclick="changeStory(-1)"><span class="material-icons">chevron_left</span></button>
+            <div class="story-card">
+                <div class="story-progress-container" id="story-progress-container"></div>
+                <div class="story-header">
+                    <img id="story-user-img" src="" alt="User">
+                    <span class="username" id="story-username"></span>
+                    <span class="time" id="story-time"></span>
+                </div>
+                <img class="story-image" id="story-image" src="" alt="Story">
+            </div>
+            <button class="story-nav-btn" id="story-next" onclick="changeStory(1)"><span class="material-icons">chevron_right</span></button>
+        </div>
+    </div>
+
+    <!-- Explore Post Viewer Modal -->
+    <div class="modal-overlay" id="post-view-modal" style="display: none;">
+        <div style="position: absolute; top: 20px; right: 20px; cursor: pointer; color: white; font-size: 30px;" onclick="document.getElementById('post-view-modal').style.display='none'">
+            <span class="material-icons">close</span>
+        </div>
         <div class="post-view-content">
             <div class="post-view-left">
-                <img src="" alt="Post Content" id="post-view-img">
+                <img id="pv-img" src="" alt="Post">
             </div>
             <div class="post-view-right">
                 <div class="post-view-header">
-                    <img src="https://randomuser.me/api/portraits/men/11.jpg" alt="User">
-                    <span class="username">explore_user</span>
-                    <span class="material-icons-outlined" style="margin-left: auto;">more_horiz</span>
+                    <img id="pv-user-img" src="" alt="User">
+                    <span class="username" id="pv-username"></span>
+                    <span class="material-icons" style="margin-left: auto; cursor: pointer;">more_horiz</span>
                 </div>
-                <div class="post-view-comments">
-                    <div class="comment">
-                        <img src="https://randomuser.me/api/portraits/women/22.jpg" alt="User">
-                        <div class="comment-text">
-                            <span class="username">jane_doe</span> This is such a cool post! 😍
-                            <div class="comment-meta">
-                                <span>2h</span> <span>12 likes</span> <span>Reply</span>
-                            </div>
-                        </div>
-                        <span class="material-icons-outlined like-comment">favorite_border</span>
-                    </div>
+                <div class="post-view-comments" id="pv-comments">
+                    <!-- Comments -->
                 </div>
                 <div class="post-view-actions">
                     <div class="action-icons">
@@ -223,17 +228,18 @@
                         <span class="material-icons-outlined">send</span>
                         <span class="material-icons-outlined" style="margin-left: auto;">bookmark_border</span>
                     </div>
-                    <div class="post-likes" id="post-view-likes">1,234 likes</div>
-                    <div class="post-time" style="font-size: 10px; color: var(--text-secondary); text-transform: uppercase;">1 day ago</div>
+                    <div style="font-weight: 600; font-size: 14px; margin-bottom: 4px;" id="pv-likes">0 likes</div>
+                    <div style="font-size: 10px; color: var(--text-secondary); text-transform: uppercase;">1 DAY AGO</div>
                 </div>
                 <div class="post-view-add-comment">
-                    <span class="material-icons-outlined">sentiment_satisfied</span>
+                    <span class="material-icons-outlined" style="cursor: pointer; font-size: 24px;">mood</span>
                     <input type="text" placeholder="Add a comment...">
                     <button>Post</button>
                 </div>
             </div>
         </div>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
