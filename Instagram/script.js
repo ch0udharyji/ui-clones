@@ -72,6 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setupSearchPanel();
     setupViews();
     setupNotifications();
+    setupPostViewModal();
 });
 
 function setupModal() {
@@ -505,8 +506,43 @@ function setupViews() {
                 <div class="explore-stat"><span class="material-icons">chat_bubble</span><span>${formatNumber(item.comments)}</span></div>
             </div>
         `;
+        
+        // Add click listener to open post modal
+        itemEl.addEventListener('click', () => {
+            if (window.openPostViewModal) {
+                window.openPostViewModal(item);
+            }
+        });
+        
         return itemEl;
     }
+}
+
+function setupPostViewModal() {
+    const postModal = document.getElementById('post-view-modal');
+    const closeBtn = document.getElementById('close-post-view-btn');
+    const postImg = document.getElementById('post-view-img');
+    const postLikes = document.getElementById('post-view-likes');
+
+    // Make function available globally so grid items can call it
+    window.openPostViewModal = function(item) {
+        postImg.src = item.image;
+        postLikes.textContent = `${formatNumber(item.likes)} likes`;
+        postModal.style.display = 'flex';
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    };
+
+    closeBtn.addEventListener('click', () => {
+        postModal.style.display = 'none';
+        document.body.style.overflow = '';
+    });
+
+    postModal.addEventListener('click', (e) => {
+        if (e.target === postModal) {
+            postModal.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+    });
 }
 
 function setupNotifications() {
