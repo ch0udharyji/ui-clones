@@ -518,3 +518,152 @@ ul {
 .primary-btn:hover {
     background-color: var(--primary-hover);
 }
+
+/* Story Viewer Styles */
+.story-viewer-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #1a1a1a;
+    z-index: 2000;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.story-viewer-header {
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    max-width: 450px;
+    padding: 10px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2001;
+}
+
+.story-progress {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    right: 10px;
+    height: 2px;
+    display: flex;
+    gap: 4px;
+}
+
+.progress-bar {
+    flex: 1;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background-color: white;
+}
+
+.story-user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.story-user-info img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+
+.story-user-info #story-user-name {
+    font-weight: 600;
+    font-size: 14px;
+    color: white;
+}
+
+.story-time {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 14px;
+}
+
+.story-actions {
+    display: flex;
+    gap: 16px;
+    color: white;
+    margin-top: 10px;
+}
+
+.story-content {
+    position: relative;
+    width: 100%;
+    max-width: 450px;
+    height: 80vh;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.story-content img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.story-nav {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    z-index: 2002;
+    cursor: pointer;
+}
+
+.story-nav.left {
+    left: 0;
+}
+
+.story-nav.right {
+    right: 0;
+}
+
+.story-footer {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    max-width: 450px;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    z-index: 2001;
+}
+
+.story-footer input {
+    flex: 1;
+    background: transparent;
+    border: 1px solid white;
+    border-radius: 24px;
+    padding: 12px 20px;
+    color: white;
+    outline: none;
+}
+
+.story-footer input::placeholder {
+    color: white;
+}
+
+.story-footer .material-icons-outlined {
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+}
