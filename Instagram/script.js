@@ -70,7 +70,8 @@ document.addEventListener("DOMContentLoaded", () => {
     setupModal();
     setupStoryViewer();
     setupSearchPanel();
-    setupExplore();
+    setupViews();
+    setupNotifications();
 });
 
 function setupModal() {
@@ -398,63 +399,160 @@ function setupSearchPanel() {
     }
 }
 
-function setupExplore() {
-    const homeNavBtn = document.getElementById('home-nav-btn');
-    const exploreNavBtn = document.getElementById('explore-nav-btn');
-    const homeView = document.getElementById('home-view');
+function setupViews() {
+    const navs = {
+        'home': { btn: document.getElementById('home-nav-btn'), view: document.getElementById('home-view'), showSidebar: true },
+        'explore': { btn: document.getElementById('explore-nav-btn'), view: document.getElementById('explore-view'), showSidebar: false },
+        'reels': { btn: document.getElementById('reels-nav-btn'), view: document.getElementById('reels-view'), showSidebar: false },
+        'messages': { btn: document.getElementById('messages-nav-btn'), view: document.getElementById('messages-view'), showSidebar: false },
+        'profile': { btn: document.getElementById('profile-nav-btn'), view: document.getElementById('profile-view'), showSidebar: false }
+    };
     const rightSidebar = document.getElementById('right-sidebar');
-    const exploreView = document.getElementById('explore-view');
     const exploreGrid = document.getElementById('explore-grid');
+    const profileGrid = document.getElementById('profile-grid');
+    const reelsContainer = document.getElementById('reels-view');
+    const messagesList = document.getElementById('messages-list');
 
-    // Render Explore Grid
+    // 1. Render Explore
     exploreData.forEach(item => {
-        const itemEl = document.createElement('div');
-        itemEl.classList.add('explore-item');
-        itemEl.innerHTML = `
-            <img src="${item.image}" alt="Explore Image" loading="lazy">
-            <div class="explore-overlay">
-                <div class="explore-stat">
-                    <span class="material-icons">favorite</span>
-                    <span>${formatNumber(item.likes)}</span>
-                </div>
-                <div class="explore-stat">
-                    <span class="material-icons">chat_bubble</span>
-                    <span>${formatNumber(item.comments)}</span>
-                </div>
-            </div>
-        `;
+        const itemEl = createGridItem(item);
         exploreGrid.appendChild(itemEl);
     });
 
-    // Handle navigation toggling
-    homeNavBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        
-        homeNavBtn.classList.add('active');
-        exploreNavBtn.classList.remove('active');
-        
-        // Reset icons
-        homeNavBtn.querySelector('.material-icons, .material-icons-outlined').className = 'material-icons';
-        exploreNavBtn.querySelector('.material-icons, .material-icons-outlined').className = 'material-icons-outlined';
-
-        homeView.style.display = 'block';
-        rightSidebar.style.display = 'block';
-        exploreView.style.display = 'none';
+    // 2. Render Profile Grid (reusing explore data for simplicity)
+    exploreData.slice(0, 18).forEach(item => {
+        const itemEl = createGridItem(item);
+        profileGrid.appendChild(itemEl);
     });
 
-    exploreNavBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        
-        exploreNavBtn.classList.add('active');
-        homeNavBtn.classList.remove('active');
-        
-        // Reset icons
-        exploreNavBtn.querySelector('.material-icons, .material-icons-outlined').className = 'material-icons';
-        homeNavBtn.querySelector('.material-icons, .material-icons-outlined').className = 'material-icons-outlined';
+    // 3. Render Reels
+    exploreData.slice(0, 5).forEach(item => {
+        const reel = document.createElement('div');
+        reel.classList.add('reel-item');
+        reel.innerHTML = `
+            <div class="reel-video-container">
+                <img src="https://picsum.photos/400/800?random=${item.id + 200}" alt="Reel">
+                <div class="reel-actions">
+                    <div class="reel-action"><span class="material-icons-outlined">favorite_border</span><span>${formatNumber(item.likes)}</span></div>
+                    <div class="reel-action"><span class="material-icons-outlined">chat_bubble_outline</span><span>${formatNumber(item.comments)}</span></div>
+                    <div class="reel-action"><span class="material-icons-outlined">send</span></div>
+                    <div class="reel-action"><span class="material-icons-outlined">bookmark_border</span></div>
+                    <div class="reel-action"><span class="material-icons-outlined">more_horiz</span></div>
+                </div>
+            </div>
+        `;
+        reelsContainer.appendChild(reel);
+    });
 
-        homeView.style.display = 'none';
-        rightSidebar.style.display = 'none';
-        exploreView.style.display = 'block';
+    // 4. Render Messages
+    usersData.forEach(user => {
+        const msg = document.createElement('div');
+        msg.classList.add('message-thread');
+        msg.innerHTML = `
+            <img src="${user.img}" alt="${user.username}">
+            <div class="message-thread-info">
+                <span class="username">${user.fullname}</span>
+                <span class="preview">Active ${Math.floor(Math.random() * 12) + 1}h ago</span>
+            </div>
+        `;
+        messagesList.appendChild(msg);
+    });
+
+    // Handle navigation logic
+    Object.keys(navs).forEach(key => {
+        navs[key].btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            // Turn off all
+            Object.values(navs).forEach(n => {
+                n.btn.classList.remove('active');
+                n.view.style.display = 'none';
+                
+                // Swap icons to outlined
+                if(n.btn.id !== 'profile-nav-btn') {
+                    const icon = n.btn.querySelector('.material-icons, .material-icons-outlined');
+                    if(icon) icon.className = 'material-icons-outlined';
+                }
+            });
+
+            // Turn on active
+            navs[key].btn.classList.add('active');
+            
+            if(navs[key].btn.id !== 'profile-nav-btn') {
+                const icon = navs[key].btn.querySelector('.material-icons, .material-icons-outlined');
+                if(icon) icon.className = 'material-icons';
+            }
+
+            if (key === 'reels') {
+                navs[key].view.style.display = 'flex'; // reels uses flex column
+            } else if (key === 'messages') {
+                navs[key].view.style.display = 'flex'; // messages uses flex row
+            } else {
+                navs[key].view.style.display = 'block';
+            }
+
+            rightSidebar.style.display = navs[key].showSidebar ? 'block' : 'none';
+        });
+    });
+
+    function createGridItem(item) {
+        const itemEl = document.createElement('div');
+        itemEl.classList.add('explore-item');
+        itemEl.innerHTML = `
+            <img src="${item.image}" alt="Grid Image" loading="lazy">
+            <div class="explore-overlay">
+                <div class="explore-stat"><span class="material-icons">favorite</span><span>${formatNumber(item.likes)}</span></div>
+                <div class="explore-stat"><span class="material-icons">chat_bubble</span><span>${formatNumber(item.comments)}</span></div>
+            </div>
+        `;
+        return itemEl;
+    }
+}
+
+function setupNotifications() {
+    const notifBtn = document.getElementById('notifications-nav-btn');
+    const notifPanel = document.getElementById('notifications-panel');
+    const sidebar = document.querySelector('.sidebar');
+    const notifList = document.getElementById('notifications-list');
+    
+    let isNotifOpen = false;
+
+    // Render dummy notifications
+    usersData.forEach((user, idx) => {
+        const item = document.createElement('div');
+        item.classList.add('notification-item');
+        const action = idx % 2 === 0 ? 'started following you. 2d' : 'liked your photo. 5d';
+        const btnHtml = idx % 2 === 0 ? '<button class="notification-btn">Follow</button>' : `<img src="https://picsum.photos/44/44?random=${idx}" style="border-radius:0;">`;
+        
+        item.innerHTML = `
+            <img src="${user.img}" alt="${user.username}">
+            <div class="notification-info">
+                <span class="username">${user.username}</span> ${action}
+            </div>
+            ${btnHtml}
+        `;
+        notifList.appendChild(item);
+    });
+
+    notifBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        isNotifOpen = !isNotifOpen;
+        
+        if (isNotifOpen) {
+            notifPanel.classList.add('active');
+            sidebar.classList.add('shrunk');
+        } else {
+            notifPanel.classList.remove('active');
+            sidebar.classList.remove('shrunk');
+        }
+    });
+
+    document.addEventListener('click', (e) => {
+        if (isNotifOpen && !notifPanel.contains(e.target) && !notifBtn.contains(e.target)) {
+            isNotifOpen = false;
+            notifPanel.classList.remove('active');
+            sidebar.classList.remove('shrunk');
+        }
     });
 }
 
