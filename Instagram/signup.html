@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up • Instagram</title>
+    <link rel="stylesheet" href="auth.css">
+    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1024px-Instagram_icon.png">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-main">
+            <div class="auth-box">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/800px-Instagram_logo.svg.png" alt="Instagram" class="auth-logo">
+                <p class="signup-text">Sign up to see photos and videos from your friends.</p>
+                <button class="auth-btn fb-signup">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Facebook_logo_%28square%29.png/600px-Facebook_logo_%28square%29.png" alt="Facebook" class="fb-icon-white">
+                    Log in with Facebook
+                </button>
+                
+                <div class="divider">
+                    <div class="line"></div>
+                    <div class="or">OR</div>
+                    <div class="line"></div>
+                </div>
+                
+                <form id="signup-form" class="auth-form">
+                    <div class="input-group">
+                        <input type="text" id="signup-email" placeholder="Mobile Number or Email" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" id="signup-fullname" placeholder="Full Name" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" id="signup-username" placeholder="Username" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" id="signup-password" placeholder="Password" required>
+                        <span class="show-password" onclick="togglePassword('signup-password')">Show</span>
+                    </div>
+                    
+                    <p class="terms-text">
+                        People who use our service may have uploaded your contact information to Instagram. <a href="#">Learn More</a>
+                        <br><br>
+                        By signing up, you agree to our <a href="#">Terms</a>, <a href="#">Privacy Policy</a> and <a href="#">Cookies Policy</a>.
+                    </p>
+                    
+                    <button type="submit" class="auth-btn" id="signup-btn">Sign up</button>
+                </form>
+            </div>
+            
+            <div class="auth-box bottom-box">
+                <p>Have an account? <a href="login.html" class="auth-link">Log in</a></p>
+            </div>
+            
+            <div class="get-app">
+                <p>Get the app.</p>
+                <div class="app-stores">
+                    <img src="https://static.cdninstagram.com/rsrc.php/v3/yq/r/Yfc020c8z20.png" alt="Get it on Google Play">
+                    <img src="https://static.cdninstagram.com/rsrc.php/v3/yv/r/1-tb4ZcWwR3.png" alt="Get it from Microsoft">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="auth-footer">
+        <div class="footer-links">
+            <a href="#">Meta</a> <a href="#">About</a> <a href="#">Blog</a> <a href="#">Jobs</a> <a href="#">Help</a> <a href="#">API</a> <a href="#">Privacy</a> <a href="#">Terms</a> <a href="#">Locations</a> <a href="#">Instagram Lite</a> <a href="#">Threads</a> <a href="#">Contact Uploading & Non-Users</a> <a href="#">Meta Verified</a>
+        </div>
+        <div class="footer-copyright">
+            <select>
+                <option>English</option>
+            </select>
+            <span>&copy; 2026 Instagram from Meta</span>
+        </div>
+    </footer>
+    <script src="auth.js"></script>
+</body>
+</html>
