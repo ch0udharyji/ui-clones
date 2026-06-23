@@ -16,9 +16,9 @@
                 <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Instagram_logo.svg" alt="Instagram Logo">
             </div>
             <ul class="nav-links">
-                <li><a href="#" class="active"><span class="material-icons">home</span><span class="nav-text">Home</span></a></li>
+                <li><a href="#" class="active" id="home-nav-btn"><span class="material-icons">home</span><span class="nav-text">Home</span></a></li>
                 <li><a href="#" id="search-nav-btn"><span class="material-icons-outlined">search</span><span class="nav-text">Search</span></a></li>
-                <li><a href="#"><span class="material-icons-outlined">explore</span><span class="nav-text">Explore</span></a></li>
+                <li><a href="#" id="explore-nav-btn"><span class="material-icons-outlined">explore</span><span class="nav-text">Explore</span></a></li>
                 <li><a href="#"><span class="material-icons-outlined">movie</span><span class="nav-text">Reels</span></a></li>
                 <li><a href="#"><span class="material-icons-outlined">chat</span><span class="nav-text">Messages</span></a></li>
                 <li><a href="#"><span class="material-icons-outlined">favorite_border</span><span class="nav-text">Notifications</span></a></li>
@@ -54,7 +54,7 @@
 
         <!-- Main Feed Content -->
         <main class="main-content">
-            <div class="feed-container">
+            <div class="feed-container" id="home-view">
                 <!-- Stories Section -->
                 <div class="stories-container">
                     <div class="story">
@@ -72,7 +72,7 @@
             </div>
 
             <!-- Right Sidebar (Suggestions) -->
-            <aside class="right-sidebar">
+            <aside class="right-sidebar" id="right-sidebar">
                 <div class="user-profile-mini">
                     <img src="https://randomuser.me/api/portraits/men/11.jpg" alt="Profile">
                     <div class="user-info">
@@ -97,6 +97,13 @@
                     <span>&copy; 2026 INSTAGRAM FROM META</span>
                 </div>
             </aside>
+
+            <!-- Explore Container -->
+            <div class="explore-container" id="explore-view" style="display: none;">
+                <div class="explore-grid" id="explore-grid">
+                    <!-- Explore items will populate here -->
+                </div>
+            </div>
         </main>
     </div>
 
