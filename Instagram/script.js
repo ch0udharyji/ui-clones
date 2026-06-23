@@ -107,6 +107,31 @@ document.getElementById('nav-create').addEventListener('click', (e) => {
     document.getElementById('create-modal').style.display = 'flex';
 });
 
+// Theme Toggle
+document.getElementById('nav-theme-toggle').addEventListener('click', (e) => {
+    e.preventDefault();
+    const isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (document.body.classList.contains('dark-mode')) {
+        document.body.classList.remove('dark-mode');
+        document.body.classList.add('light-mode');
+        e.currentTarget.querySelector('.material-icons-outlined').innerText = 'light_mode';
+    } else if (document.body.classList.contains('light-mode')) {
+        document.body.classList.remove('light-mode');
+        document.body.classList.add('dark-mode');
+        e.currentTarget.querySelector('.material-icons-outlined').innerText = 'dark_mode';
+    } else {
+        // First toggle defaults to opposite of system preference
+        if (isDark) {
+            document.body.classList.add('light-mode');
+            e.currentTarget.querySelector('.material-icons-outlined').innerText = 'light_mode';
+        } else {
+            document.body.classList.add('dark-mode');
+            e.currentTarget.querySelector('.material-icons-outlined').innerText = 'dark_mode';
+        }
+    }
+});
+
 // Rendering Functions
 function renderHomeFeed() {
     const storiesContainer = document.getElementById('stories-container');
