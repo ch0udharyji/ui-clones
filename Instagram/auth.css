@@ -1,0 +1,305 @@
+:root {
+    --bg-color: #fafafa;
+    --text-color: #262626;
+    --text-secondary: #8e8e8e;
+    --border-color: #dbdbdb;
+    --primary-color: #0095f6;
+    --primary-hover: #1877f2;
+    --primary-disabled: #b2dffc;
+    --link-color: #00376b;
+    --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Base styles for dark mode preference (Instagram supports dark mode, we'll keep it simple or default to light/dark based on body class, but let's make it look like the modern dark Instagram auth page) */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: #000000;
+        --text-color: #f5f5f5;
+        --text-secondary: #a8a8a8;
+        --border-color: #262626;
+        --link-color: #e0f1ff;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-family);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    color: var(--link-color);
+}
+
+.auth-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 32px 0;
+}
+
+.auth-main {
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.auth-box {
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    padding: 10px 40px;
+    margin-bottom: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (min-width: 876px) {
+    .auth-box {
+        background-color: var(--bg-color); /* Real IG uses solid white/black here */
+    }
+}
+
+.auth-logo {
+    height: 51px;
+    margin: 36px 0 12px;
+    filter: invert(0);
+}
+
+@media (prefers-color-scheme: dark) {
+    .auth-logo {
+        filter: invert(1);
+    }
+}
+
+.auth-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 24px;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 6px;
+    width: 100%;
+}
+
+.input-group input {
+    width: 100%;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: 3px;
+    padding: 9px 8px 7px;
+    font-size: 12px;
+    color: var(--text-color);
+    outline: none;
+}
+
+.input-group input:focus {
+    border-color: var(--text-secondary);
+}
+
+.show-password {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    display: none;
+}
+
+.input-group input:valid ~ .show-password,
+.input-group input:not(:placeholder-shown) ~ .show-password {
+    display: block;
+}
+
+.auth-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 7px 16px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    width: 100%;
+    transition: background-color 0.2s;
+}
+
+.auth-btn:hover {
+    background-color: var(--primary-hover);
+}
+
+.auth-btn:disabled {
+    background-color: var(--primary-disabled);
+    cursor: default;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    margin: 10px 0 18px;
+    width: 100%;
+}
+
+.divider .line {
+    flex: 1;
+    height: 1px;
+    background-color: var(--border-color);
+}
+
+.divider .or {
+    margin: 0 18px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.fb-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #385185;
+    font-weight: 600;
+    font-size: 14px;
+    margin-top: 8px;
+    margin-bottom: 16px;
+}
+
+@media (prefers-color-scheme: dark) {
+    .fb-login {
+        color: var(--primary-color);
+    }
+}
+
+.fb-login img {
+    width: 16px;
+    margin-right: 8px;
+}
+
+.forgot-password {
+    font-size: 12px;
+    text-align: center;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.bottom-box {
+    padding: 20px 0;
+    font-size: 14px;
+}
+
+.auth-link {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.get-app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.get-app p {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.app-stores {
+    display: flex;
+    gap: 8px;
+}
+
+.app-stores img {
+    height: 40px;
+}
+
+/* Signup specific */
+.signup-text {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.fb-signup {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.fb-icon-white {
+    width: 16px;
+    margin-right: 8px;
+    filter: brightness(0) invert(1);
+}
+
+.terms-text {
+    font-size: 12px;
+    color: var(--text-secondary);
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.terms-text a {
+    color: var(--text-secondary);
+}
+
+/* Footer */
+.auth-footer {
+    padding: 24px;
+    font-size: 12px;
+    color: var(--text-secondary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: var(--text-secondary);
+}
+
+.footer-copyright {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.footer-copyright select {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    outline: none;
+    cursor: pointer;
+}
