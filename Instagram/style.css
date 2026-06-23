@@ -216,3 +216,127 @@ ul {
     width: 100%;
     text-align: center;
 }
+
+/* Posts Section */
+.post {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.post-user-info {
+    display: flex;
+    align-items: center;
+}
+
+.post-user-info img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+}
+
+.post-user-details .username {
+    font-size: 14px;
+    font-weight: 600;
+    margin-right: 5px;
+}
+
+.post-user-details .time {
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+.post-more {
+    cursor: pointer;
+}
+
+.post-image {
+    width: 100%;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 10px;
+}
+
+.post-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.action-left {
+    display: flex;
+    gap: 16px;
+}
+
+.action-left .material-icons-outlined,
+.action-right .material-icons-outlined {
+    font-size: 28px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.action-left .material-icons-outlined:hover,
+.action-right .material-icons-outlined:hover {
+    color: var(--text-secondary);
+}
+
+.post-likes {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.post-caption {
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.post-caption .username {
+    font-weight: 600;
+    margin-right: 5px;
+}
+
+.post-comments-count {
+    color: var(--text-secondary);
+    font-size: 14px;
+    cursor: pointer;
+    margin-bottom: 8px;
+}
+
+.add-comment {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.add-comment input {
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    font-size: 14px;
+    outline: none;
+    width: 80%;
+}
+
+.add-comment .post-btn {
+    color: var(--primary-color);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.add-comment .post-btn:hover {
+    color: var(--text-color);
+}
