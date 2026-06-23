@@ -2,9 +2,9 @@ const postsData = [
     {
         id: 1,
         username: "johndoe",
-        userImage: "https://i.pravatar.cc/150?img=12",
+        userImage: "https://randomuser.me/api/portraits/men/12.jpg",
         time: "2h",
-        image: "https://images.unsplash.com/photo-1682687220742-aba13b6e50ba",
+        image: "https://picsum.photos/600/600?random=1",
         likes: "1,234",
         caption: "Beautiful sunset at the beach today! 🌅 #sunset #beach",
         comments: 42
@@ -12,9 +12,9 @@ const postsData = [
     {
         id: 2,
         username: "traveler_101",
-        userImage: "https://i.pravatar.cc/150?img=33",
+        userImage: "https://randomuser.me/api/portraits/men/33.jpg",
         time: "5h",
-        image: "https://images.unsplash.com/photo-1682687982501-1e58f813222a",
+        image: "https://picsum.photos/600/600?random=2",
         likes: "8,942",
         caption: "Exploring the mountains. Nature is amazing. ⛰️",
         comments: 128
@@ -22,9 +22,9 @@ const postsData = [
     {
         id: 3,
         username: "foodie_delight",
-        userImage: "https://i.pravatar.cc/150?img=44",
+        userImage: "https://randomuser.me/api/portraits/women/44.jpg",
         time: "8h",
-        image: "https://images.unsplash.com/photo-1546069901-ba9590a1a70c",
+        image: "https://picsum.photos/600/600?random=3",
         likes: "567",
         caption: "Best pasta in town! 🍝 #foodie",
         comments: 15
@@ -32,20 +32,20 @@ const postsData = [
 ];
 
 const storiesData = [
-    { username: "jane_smith", img: "https://i.pravatar.cc/150?img=20" },
-    { username: "mike_ross", img: "https://i.pravatar.cc/150?img=13" },
-    { username: "sara_connor", img: "https://i.pravatar.cc/150?img=14" },
-    { username: "alex_hunter", img: "https://i.pravatar.cc/150?img=15" },
-    { username: "emily_blunt", img: "https://i.pravatar.cc/150?img=16" },
-    { username: "chris_evans", img: "https://i.pravatar.cc/150?img=17" }
+    { username: "jane_smith", img: "https://randomuser.me/api/portraits/women/20.jpg" },
+    { username: "mike_ross", img: "https://randomuser.me/api/portraits/men/13.jpg" },
+    { username: "sara_connor", img: "https://randomuser.me/api/portraits/women/14.jpg" },
+    { username: "alex_hunter", img: "https://randomuser.me/api/portraits/men/15.jpg" },
+    { username: "emily_blunt", img: "https://randomuser.me/api/portraits/women/16.jpg" },
+    { username: "chris_evans", img: "https://randomuser.me/api/portraits/men/17.jpg" }
 ];
 
 const suggestionsData = [
-    { username: "nature_lover", img: "https://i.pravatar.cc/150?img=50", reason: "Followed by johndoe + 2 more" },
-    { username: "tech_guru", img: "https://i.pravatar.cc/150?img=51", reason: "New to Instagram" },
-    { username: "art_daily", img: "https://i.pravatar.cc/150?img=52", reason: "Suggested for you" },
-    { username: "fitness_freak", img: "https://i.pravatar.cc/150?img=53", reason: "Follows you" },
-    { username: "music_vibes", img: "https://i.pravatar.cc/150?img=54", reason: "Suggested for you" }
+    { username: "nature_lover", img: "https://randomuser.me/api/portraits/women/50.jpg", reason: "Followed by johndoe + 2 more" },
+    { username: "tech_guru", img: "https://randomuser.me/api/portraits/men/51.jpg", reason: "New to Instagram" },
+    { username: "art_daily", img: "https://randomuser.me/api/portraits/women/52.jpg", reason: "Suggested for you" },
+    { username: "fitness_freak", img: "https://randomuser.me/api/portraits/men/53.jpg", reason: "Follows you" },
+    { username: "music_vibes", img: "https://randomuser.me/api/portraits/women/54.jpg", reason: "Suggested for you" }
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
