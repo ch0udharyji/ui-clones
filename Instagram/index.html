@@ -10,7 +10,6 @@
 </head>
 <body>
     <div class="app-container">
-        <!-- Sidebar Navigation -->
         <nav class="sidebar">
             <div class="logo">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Instagram_logo.svg" alt="Instagram Logo">
@@ -30,8 +29,6 @@
                 <a href="#"><span class="material-icons-outlined">menu</span><span class="nav-text">More</span></a>
             </div>
         </nav>
-
-        <!-- Search Panel -->
         <div class="search-panel" id="search-panel">
             <div class="search-panel-header">
                 <h2>Search</h2>
@@ -47,12 +44,9 @@
                     <span class="clear-all-text" id="clear-all-search">Clear all</span>
                 </div>
                 <div class="search-results-list" id="search-results-list">
-                    <!-- Results will populate here -->
                 </div>
             </div>
         </div>
-
-        <!-- Notifications Panel -->
         <div class="search-panel" id="notifications-panel">
             <div class="search-panel-header">
                 <h2>Notifications</h2>
@@ -62,15 +56,11 @@
                     <span class="recent-text">This Week</span>
                 </div>
                 <div class="search-results-list" id="notifications-list">
-                    <!-- Notifications will populate here -->
                 </div>
             </div>
         </div>
-
-        <!-- Main Feed Content -->
         <main class="main-content">
             <div class="feed-container" id="home-view">
-                <!-- Stories Section -->
                 <div class="stories-container">
                     <div class="story">
                         <div class="story-ring">
@@ -79,14 +69,9 @@
                         <span class="story-user">Your story</span>
                     </div>
                 </div>
-
-                <!-- Posts Feed -->
                 <div class="posts-feed">
-                    <!-- Post will be dynamically injected or added here -->
                 </div>
             </div>
-
-            <!-- Right Sidebar (Suggestions) -->
             <aside class="right-sidebar" id="right-sidebar">
                 <div class="user-profile-mini">
                     <img src="https://randomuser.me/api/portraits/men/11.jpg" alt="Profile">
@@ -96,36 +81,24 @@
                     </div>
                     <a href="login.html" class="switch-btn" style="text-decoration: none; display: inline-block; padding: 0;">Switch</a>
                 </div>
-                
                 <div class="suggestions-header">
                     <span>Suggested for you</span>
                     <a href="#">See All</a>
                 </div>
-
                 <div class="suggestions-list">
-                    <!-- Suggestions will be added here -->
                 </div>
-
                 <div class="footer-links">
                     <a href="#">About</a> &bull; <a href="#">Help</a> &bull; <a href="#">Press</a> &bull; <a href="#">API</a> &bull; <a href="#">Jobs</a> &bull; <a href="#">Privacy</a> &bull; <a href="#">Terms</a>
                     <br><br>
                     <span>&copy; 2026 INSTAGRAM FROM META</span>
                 </div>
             </aside>
-
-            <!-- Explore Container -->
             <div class="explore-container" id="explore-view" style="display: none;">
                 <div class="explore-grid" id="explore-grid">
-                    <!-- Explore items will populate here -->
                 </div>
             </div>
-
-            <!-- Reels Container -->
             <div class="reels-container" id="reels-view" style="display: none;">
-                <!-- Reels will be injected here -->
             </div>
-
-            <!-- Messages Container -->
             <div class="messages-container" id="messages-view" style="display: none;">
                 <div class="messages-sidebar">
                     <div class="messages-header">
@@ -133,7 +106,6 @@
                         <span class="material-icons-outlined">edit_square</span>
                     </div>
                     <div class="messages-list" id="messages-list">
-                        <!-- Message threads here -->
                     </div>
                 </div>
                 <div class="messages-chat">
@@ -145,8 +117,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Profile Container -->
             <div class="profile-container" id="profile-view" style="display: none;">
                 <div class="profile-header">
                     <div class="profile-pic-large">
@@ -176,13 +146,10 @@
                     <div class="tab"><span class="material-icons-outlined">assignment_ind</span> TAGGED</div>
                 </div>
                 <div class="explore-grid" id="profile-grid">
-                    <!-- Profile posts will populate here -->
                 </div>
             </div>
         </main>
     </div>
-
-    <!-- Story Viewer Modal -->
     <div class="story-viewer-overlay" id="story-viewer">
         <div class="story-viewer-header">
             <div class="story-progress">
@@ -210,7 +177,6 @@
             <span class="material-icons-outlined">send</span>
         </div>
     </div>
-    <!-- Create Post Modal -->
     <div class="modal-overlay" id="create-modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -225,8 +191,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Post View Modal -->
     <div class="modal-overlay" id="post-view-modal" style="display: none; z-index: 2500;">
         <span class="material-icons-outlined" id="close-post-view-btn" style="position: absolute; top: 20px; right: 20px; color: white; font-size: 32px; cursor: pointer;">close</span>
         <div class="post-view-content">
@@ -250,7 +214,6 @@
                         </div>
                         <span class="material-icons-outlined like-comment">favorite_border</span>
                     </div>
-                    <!-- More dummy comments can be added here dynamically or statically -->
                 </div>
                 <div class="post-view-actions">
                     <div class="action-icons">
@@ -270,7 +233,6 @@
             </div>
         </div>
     </div>
-    
     <script src="script.js"></script>
 </body>
 </html>
