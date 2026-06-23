@@ -56,6 +56,13 @@ const usersData = [
     { username: "art_daily", fullname: "Art Daily", img: "https://randomuser.me/api/portraits/women/52.jpg" }
 ];
 
+const exploreData = Array.from({ length: 18 }, (_, i) => ({
+    id: i,
+    image: `https://picsum.photos/400/400?random=${i + 100}`,
+    likes: Math.floor(Math.random() * 10000) + 100,
+    comments: Math.floor(Math.random() * 1000) + 10
+}));
+
 document.addEventListener("DOMContentLoaded", () => {
     renderStories();
     renderPosts();
@@ -63,6 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setupModal();
     setupStoryViewer();
     setupSearchPanel();
+    setupExplore();
 });
 
 function setupModal() {
@@ -388,4 +396,71 @@ function setupSearchPanel() {
             searchResultsList.appendChild(item);
         });
     }
+}
+
+function setupExplore() {
+    const homeNavBtn = document.getElementById('home-nav-btn');
+    const exploreNavBtn = document.getElementById('explore-nav-btn');
+    const homeView = document.getElementById('home-view');
+    const rightSidebar = document.getElementById('right-sidebar');
+    const exploreView = document.getElementById('explore-view');
+    const exploreGrid = document.getElementById('explore-grid');
+
+    // Render Explore Grid
+    exploreData.forEach(item => {
+        const itemEl = document.createElement('div');
+        itemEl.classList.add('explore-item');
+        itemEl.innerHTML = `
+            <img src="${item.image}" alt="Explore Image" loading="lazy">
+            <div class="explore-overlay">
+                <div class="explore-stat">
+                    <span class="material-icons">favorite</span>
+                    <span>${formatNumber(item.likes)}</span>
+                </div>
+                <div class="explore-stat">
+                    <span class="material-icons">chat_bubble</span>
+                    <span>${formatNumber(item.comments)}</span>
+                </div>
+            </div>
+        `;
+        exploreGrid.appendChild(itemEl);
+    });
+
+    // Handle navigation toggling
+    homeNavBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        homeNavBtn.classList.add('active');
+        exploreNavBtn.classList.remove('active');
+        
+        // Reset icons
+        homeNavBtn.querySelector('.material-icons, .material-icons-outlined').className = 'material-icons';
+        exploreNavBtn.querySelector('.material-icons, .material-icons-outlined').className = 'material-icons-outlined';
+
+        homeView.style.display = 'block';
+        rightSidebar.style.display = 'block';
+        exploreView.style.display = 'none';
+    });
+
+    exploreNavBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        exploreNavBtn.classList.add('active');
+        homeNavBtn.classList.remove('active');
+        
+        // Reset icons
+        exploreNavBtn.querySelector('.material-icons, .material-icons-outlined').className = 'material-icons';
+        homeNavBtn.querySelector('.material-icons, .material-icons-outlined').className = 'material-icons-outlined';
+
+        homeView.style.display = 'none';
+        rightSidebar.style.display = 'none';
+        exploreView.style.display = 'block';
+    });
+}
+
+function formatNumber(num) {
+    if (num >= 1000) {
+        return (num / 1000).toFixed(1).replace(/\.0$/, '') + 'k';
+    }
+    return num.toString();
 }
