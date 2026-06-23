@@ -23,7 +23,7 @@
                 <li><a href="#"><span class="material-icons-outlined">movie</span><span class="nav-text">Reels</span></a></li>
                 <li><a href="#"><span class="material-icons-outlined">chat</span><span class="nav-text">Messages</span></a></li>
                 <li><a href="#"><span class="material-icons-outlined">favorite_border</span><span class="nav-text">Notifications</span></a></li>
-                <li><a href="#"><span class="material-icons-outlined">add_box</span><span class="nav-text">Create</span></a></li>
+                <li><a href="#" id="create-post-btn"><span class="material-icons-outlined">add_box</span><span class="nav-text">Create</span></a></li>
                 <li><a href="#"><img src="https://i.pravatar.cc/150?img=11" alt="Profile" class="nav-profile-pic"><span class="nav-text">Profile</span></a></li>
             </ul>
             <div class="more-menu">
@@ -78,6 +78,22 @@
             </aside>
         </main>
     </div>
+    <!-- Create Post Modal -->
+    <div class="modal-overlay" id="create-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div style="width: 24px;"></div>
+                <span>Create new post</span>
+                <span class="material-icons-outlined close-modal" id="close-modal-btn">close</span>
+            </div>
+            <div class="modal-body">
+                <span class="material-icons-outlined large-icon">photo_library</span>
+                <h2>Drag photos and videos here</h2>
+                <button class="primary-btn">Select from computer</button>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
