@@ -5,57 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login • Instagram</title>
     <link rel="stylesheet" href="auth.css">
+    <link href="https://fonts.googleapis.com/css2?family=Grand+Hotel&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/174/174855.png">
 </head>
 <body>
     <div class="auth-container">
-        <div class="auth-main">
-            <div class="auth-box">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Instagram_logo.svg" alt="Instagram" class="auth-logo">
-                <form id="login-form" class="auth-form">
-                    <div class="input-group">
-                        <input type="text" id="login-username" placeholder="Phone number, username, or email" required>
-                    </div>
-                    <div class="input-group">
-                        <input type="password" id="login-password" placeholder="Password" required>
-                        <span class="show-password" onclick="togglePassword('login-password')">Show</span>
-                    </div>
-                    <button type="submit" class="auth-btn" id="login-btn">Log in</button>
-                    <div class="divider">
-                        <div class="line"></div>
-                        <div class="or">OR</div>
-                        <div class="line"></div>
-                    </div>
-                    <a href="#" class="fb-login">
-                        <span class="material-icons" style="color: #385185; font-size: 20px; vertical-align: middle;">facebook</span>
-                        Log in with Facebook
-                    </a>
-                    <a href="#" class="forgot-password">Forgot password?</a>
-                </form>
-            </div>
-            <div class="auth-box bottom-box">
-                <p>Don't have an account? <a href="signup.html" class="auth-link">Sign up</a></p>
-            </div>
-            <div class="get-app">
-                <p>Get the app.</p>
-                <div class="app-stores">
-                    <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" style="height: 40px; margin-right: 8px;">
-                    <img src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg" alt="Download on the App Store" style="height: 40px;">
+        <div class="auth-box">
+            <h1 class="logo-text">Instagram</h1>
+            <form class="auth-form" id="login-form">
+                <div class="input-group">
+                    <input type="text" placeholder="Phone number, username, or email" required>
                 </div>
+                <div class="input-group">
+                    <input type="password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="auth-btn">Log In</button>
+                
+                <div class="divider">
+                    <div class="line"></div>
+                    <div class="or">OR</div>
+                    <div class="line"></div>
+                </div>
+                
+                <div class="fb-login">
+                    <span class="material-icons">facebook</span>
+                    <span>Log in with Facebook</span>
+                </div>
+                
+                <a href="#" class="forgot-password">Forgot password?</a>
+            </form>
+        </div>
+        
+        <div class="auth-box signup-box">
+            <p>Don't have an account? <a href="signup.html">Sign up</a></p>
+        </div>
+        
+        <div class="get-app">
+            <p>Get the app.</p>
+            <div class="app-badges">
+                <img src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg" alt="Download on the App Store">
+                <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play">
             </div>
         </div>
     </div>
-    <footer class="auth-footer">
-        <div class="footer-links">
-            <a href="#">Meta</a> <a href="#">About</a> <a href="#">Blog</a> <a href="#">Jobs</a> <a href="#">Help</a> <a href="#">API</a> <a href="#">Privacy</a> <a href="#">Terms</a> <a href="#">Locations</a> <a href="#">Instagram Lite</a> <a href="#">Threads</a> <a href="#">Contact Uploading & Non-Users</a> <a href="#">Meta Verified</a>
-        </div>
-        <div class="footer-copyright">
-            <select>
-                <option>English</option>
-            </select>
-            <span>&copy; 2026 Instagram from Meta</span>
-        </div>
-    </footer>
+
     <script src="auth.js"></script>
 </body>
 </html>
