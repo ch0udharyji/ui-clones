@@ -32,12 +32,10 @@ const postsData = [
 ];
 
 const storiesData = [
-    { username: "jane_smith", img: "https://randomuser.me/api/portraits/women/20.jpg" },
-    { username: "mike_ross", img: "https://randomuser.me/api/portraits/men/13.jpg" },
-    { username: "sara_connor", img: "https://randomuser.me/api/portraits/women/14.jpg" },
-    { username: "alex_hunter", img: "https://randomuser.me/api/portraits/men/15.jpg" },
-    { username: "emily_blunt", img: "https://randomuser.me/api/portraits/women/16.jpg" },
-    { username: "chris_evans", img: "https://randomuser.me/api/portraits/men/17.jpg" }
+    { username: "jane_smith", img: "https://randomuser.me/api/portraits/women/20.jpg", storyImg: "https://picsum.photos/450/800?random=11" },
+    { username: "mike_ross", img: "https://randomuser.me/api/portraits/men/13.jpg", storyImg: "https://picsum.photos/450/800?random=12" },
+    { username: "sara_connor", img: "https://randomuser.me/api/portraits/women/14.jpg", storyImg: "https://picsum.photos/450/800?random=13" },
+    { username: "alex_hunter", img: "https://randomuser.me/api/portraits/men/15.jpg", storyImg: "https://picsum.photos/450/800?random=14" }
 ];
 
 const suggestionsData = [
@@ -53,6 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
     renderPosts();
     renderSuggestions();
     setupModal();
+    setupStoryViewer();
 });
 
 function setupModal() {
@@ -82,9 +81,10 @@ function setupModal() {
 function renderStories() {
     const storiesContainer = document.querySelector(".stories-container");
     
-    storiesData.forEach(story => {
+    storiesData.forEach((story, index) => {
         const storyEl = document.createElement("div");
         storyEl.classList.add("story");
+        storyEl.dataset.index = index;
         storyEl.innerHTML = `
             <div class="story-ring">
                 <img src="${story.img}" alt="${story.username}">
@@ -172,4 +172,107 @@ function renderSuggestions() {
         `;
         suggestionsList.appendChild(sugEl);
     });
+}
+
+function setupStoryViewer() {
+    const viewer = document.getElementById('story-viewer');
+    const closeBtn = document.getElementById('close-story-btn');
+    const userImg = document.getElementById('story-user-img');
+    const userName = document.getElementById('story-user-name');
+    const contentImg = document.getElementById('story-content-img');
+    const progressFill = document.getElementById('story-progress-fill');
+    
+    const prevNav = document.getElementById('story-nav-prev');
+    const nextNav = document.getElementById('story-nav-next');
+    
+    let currentStoryIndex = 0;
+    let storyTimeout;
+    let progressInterval;
+    const STORY_DURATION = 3000; // 3 seconds per story
+
+    // Add click listeners to all stories
+    document.querySelector('.stories-container').addEventListener('click', (e) => {
+        const storyEl = e.target.closest('.story');
+        if (storyEl) {
+            if (storyEl.dataset.index !== undefined) {
+                openStory(parseInt(storyEl.dataset.index));
+            } else {
+                // Handle "Your story" click
+                openStory(-1);
+            }
+        }
+    });
+
+    closeBtn.addEventListener('click', closeStory);
+
+    prevNav.addEventListener('click', () => {
+        if (currentStoryIndex > -1) {
+            openStory(currentStoryIndex - 1);
+        }
+    });
+
+    nextNav.addEventListener('click', () => {
+        if (currentStoryIndex < storiesData.length - 1) {
+            openStory(currentStoryIndex + 1);
+        } else {
+            closeStory();
+        }
+    });
+
+    function openStory(index) {
+        currentStoryIndex = index;
+        viewer.style.display = 'flex';
+        resetProgress();
+        
+        let story;
+        if (index === -1) {
+            // Your story mockup
+            story = {
+                username: "Your story",
+                img: "https://randomuser.me/api/portraits/men/11.jpg",
+                storyImg: "https://picsum.photos/450/800?random=10"
+            };
+        } else {
+            story = storiesData[index];
+        }
+
+        userImg.src = story.img;
+        userName.textContent = story.username;
+        contentImg.src = story.storyImg;
+
+        startProgress();
+    }
+
+    function closeStory() {
+        viewer.style.display = 'none';
+        clearTimeout(storyTimeout);
+        clearInterval(progressInterval);
+    }
+
+    function resetProgress() {
+        clearTimeout(storyTimeout);
+        clearInterval(progressInterval);
+        progressFill.style.width = '0%';
+    }
+
+    function startProgress() {
+        let startTime = Date.now();
+        
+        progressInterval = setInterval(() => {
+            let elapsed = Date.now() - startTime;
+            let percentage = (elapsed / STORY_DURATION) * 100;
+            if (percentage >= 100) percentage = 100;
+            progressFill.style.width = percentage + '%';
+        }, 16);
+
+        storyTimeout = setTimeout(() => {
+            clearInterval(progressInterval);
+            // Move to next story automatically
+            if (currentStoryIndex < storiesData.length - 1) {
+                openStory(currentStoryIndex + 1);
+            } else {
+                closeStory();
+            }
+        }, STORY_DURATION);
+    }
 }
