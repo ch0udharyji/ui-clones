@@ -19,11 +19,11 @@
                 <li><a href="#" class="active" id="home-nav-btn"><span class="material-icons">home</span><span class="nav-text">Home</span></a></li>
                 <li><a href="#" id="search-nav-btn"><span class="material-icons-outlined">search</span><span class="nav-text">Search</span></a></li>
                 <li><a href="#" id="explore-nav-btn"><span class="material-icons-outlined">explore</span><span class="nav-text">Explore</span></a></li>
-                <li><a href="#"><span class="material-icons-outlined">movie</span><span class="nav-text">Reels</span></a></li>
-                <li><a href="#"><span class="material-icons-outlined">chat</span><span class="nav-text">Messages</span></a></li>
-                <li><a href="#"><span class="material-icons-outlined">favorite_border</span><span class="nav-text">Notifications</span></a></li>
+                <li><a href="#" id="reels-nav-btn"><span class="material-icons-outlined">movie</span><span class="nav-text">Reels</span></a></li>
+                <li><a href="#" id="messages-nav-btn"><span class="material-icons-outlined">chat</span><span class="nav-text">Messages</span></a></li>
+                <li><a href="#" id="notifications-nav-btn"><span class="material-icons-outlined">favorite_border</span><span class="nav-text">Notifications</span></a></li>
                 <li><a href="#" id="create-post-btn"><span class="material-icons-outlined">add_box</span><span class="nav-text">Create</span></a></li>
-                <li><a href="#"><img src="https://randomuser.me/api/portraits/men/11.jpg" alt="Profile" class="nav-profile-pic"><span class="nav-text">Profile</span></a></li>
+                <li><a href="#" id="profile-nav-btn"><img src="https://randomuser.me/api/portraits/men/11.jpg" alt="Profile" class="nav-profile-pic"><span class="nav-text">Profile</span></a></li>
             </ul>
             <div class="more-menu">
                 <a href="login.html"><span class="material-icons-outlined">logout</span><span class="nav-text">Log out</span></a>
@@ -48,6 +48,21 @@
                 </div>
                 <div class="search-results-list" id="search-results-list">
                     <!-- Results will populate here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Notifications Panel -->
+        <div class="search-panel" id="notifications-panel">
+            <div class="search-panel-header">
+                <h2>Notifications</h2>
+            </div>
+            <div class="search-results-container">
+                <div class="search-results-header">
+                    <span class="recent-text">This Week</span>
+                </div>
+                <div class="search-results-list" id="notifications-list">
+                    <!-- Notifications will populate here -->
                 </div>
             </div>
         </div>
@@ -102,6 +117,66 @@
             <div class="explore-container" id="explore-view" style="display: none;">
                 <div class="explore-grid" id="explore-grid">
                     <!-- Explore items will populate here -->
+                </div>
+            </div>
+
+            <!-- Reels Container -->
+            <div class="reels-container" id="reels-view" style="display: none;">
+                <!-- Reels will be injected here -->
+            </div>
+
+            <!-- Messages Container -->
+            <div class="messages-container" id="messages-view" style="display: none;">
+                <div class="messages-sidebar">
+                    <div class="messages-header">
+                        <h2>billudev</h2>
+                        <span class="material-icons-outlined">edit_square</span>
+                    </div>
+                    <div class="messages-list" id="messages-list">
+                        <!-- Message threads here -->
+                    </div>
+                </div>
+                <div class="messages-chat">
+                    <div class="chat-placeholder">
+                        <span class="material-icons-outlined chat-icon">maps_ugc</span>
+                        <h3>Your Messages</h3>
+                        <p>Send private photos and messages to a friend or group.</p>
+                        <button class="primary-btn">Send Message</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile Container -->
+            <div class="profile-container" id="profile-view" style="display: none;">
+                <div class="profile-header">
+                    <div class="profile-pic-large">
+                        <img src="https://randomuser.me/api/portraits/men/11.jpg" alt="Profile">
+                    </div>
+                    <div class="profile-details">
+                        <div class="profile-title-row">
+                            <h2>billudev</h2>
+                            <button class="primary-btn" style="background-color: var(--border-color); color: var(--text-color);">Edit profile</button>
+                            <button class="primary-btn" style="background-color: var(--border-color); color: var(--text-color);">View archive</button>
+                            <span class="material-icons-outlined">settings</span>
+                        </div>
+                        <div class="profile-stats">
+                            <span><strong>18</strong> posts</span>
+                            <span><strong>254</strong> followers</span>
+                            <span><strong>310</strong> following</span>
+                        </div>
+                        <div class="profile-bio">
+                            <span class="fullname">Billu Dev</span>
+                            <p>Web Developer | Designer<br>Building cool UI clones! 🚀</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-tabs">
+                    <div class="tab active"><span class="material-icons-outlined">grid_on</span> POSTS</div>
+                    <div class="tab"><span class="material-icons-outlined">bookmark_border</span> SAVED</div>
+                    <div class="tab"><span class="material-icons-outlined">assignment_ind</span> TAGGED</div>
+                </div>
+                <div class="explore-grid" id="profile-grid">
+                    <!-- Profile posts will populate here -->
                 </div>
             </div>
         </main>
