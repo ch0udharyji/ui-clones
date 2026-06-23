@@ -46,12 +46,23 @@ const suggestionsData = [
     { username: "music_vibes", img: "https://randomuser.me/api/portraits/women/54.jpg", reason: "Suggested for you" }
 ];
 
+const usersData = [
+    { username: "billudev", fullname: "Billu Dev", img: "https://randomuser.me/api/portraits/men/11.jpg" },
+    { username: "john_doe", fullname: "John Doe", img: "https://randomuser.me/api/portraits/men/12.jpg" },
+    { username: "jane_smith", fullname: "Jane Smith", img: "https://randomuser.me/api/portraits/women/20.jpg" },
+    { username: "mike_ross", fullname: "Mike Ross", img: "https://randomuser.me/api/portraits/men/13.jpg" },
+    { username: "sara_connor", fullname: "Sara Connor", img: "https://randomuser.me/api/portraits/women/14.jpg" },
+    { username: "tech_guru", fullname: "Tech Guru", img: "https://randomuser.me/api/portraits/men/51.jpg" },
+    { username: "art_daily", fullname: "Art Daily", img: "https://randomuser.me/api/portraits/women/52.jpg" }
+];
+
 document.addEventListener("DOMContentLoaded", () => {
     renderStories();
     renderPosts();
     renderSuggestions();
     setupModal();
     setupStoryViewer();
+    setupSearchPanel();
 });
 
 function setupModal() {
@@ -274,5 +285,107 @@ function setupStoryViewer() {
                 closeStory();
             }
         }, STORY_DURATION);
+    }
+}
+
+function setupSearchPanel() {
+    const searchNavBtn = document.getElementById('search-nav-btn');
+    const searchPanel = document.getElementById('search-panel');
+    const sidebar = document.querySelector('.sidebar');
+    const searchInput = document.getElementById('search-input');
+    const clearSearchBtn = document.getElementById('clear-search-btn');
+    const searchResultsList = document.getElementById('search-results-list');
+    const recentText = document.querySelector('.recent-text');
+    const clearAllText = document.getElementById('clear-all-search');
+    
+    let isSearchOpen = false;
+
+    // Toggle search panel
+    searchNavBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        isSearchOpen = !isSearchOpen;
+        
+        if (isSearchOpen) {
+            searchPanel.classList.add('active');
+            sidebar.classList.add('shrunk');
+            renderSearchResults(''); // Show recent by default
+        } else {
+            searchPanel.classList.remove('active');
+            sidebar.classList.remove('shrunk');
+        }
+    });
+
+    // Handle input filtering
+    searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase();
+        
+        if (query.length > 0) {
+            clearSearchBtn.style.display = 'block';
+            recentText.style.display = 'none';
+            clearAllText.style.display = 'none';
+            renderSearchResults(query);
+        } else {
+            clearSearchBtn.style.display = 'none';
+            recentText.style.display = 'inline';
+            clearAllText.style.display = 'inline';
+            renderSearchResults(''); // Show recent
+        }
+    });
+
+    // Clear search input
+    clearSearchBtn.addEventListener('click', () => {
+        searchInput.value = '';
+        clearSearchBtn.style.display = 'none';
+        recentText.style.display = 'inline';
+        clearAllText.style.display = 'inline';
+        renderSearchResults('');
+        searchInput.focus();
+    });
+
+    // Close search panel when clicking outside
+    document.addEventListener('click', (e) => {
+        if (isSearchOpen && !searchPanel.contains(e.target) && !searchNavBtn.contains(e.target)) {
+            isSearchOpen = false;
+            searchPanel.classList.remove('active');
+            sidebar.classList.remove('shrunk');
+        }
+    });
+
+    function renderSearchResults(query) {
+        searchResultsList.innerHTML = '';
+        
+        let results = [];
+        if (query === '') {
+            // Mock "Recent" searches
+            results = usersData.slice(0, 3);
+        } else {
+            // Filter users based on query
+            results = usersData.filter(user => 
+                user.username.toLowerCase().includes(query) || 
+                user.fullname.toLowerCase().includes(query)
+            );
+        }
+
+        if (results.length === 0) {
+            searchResultsList.innerHTML = '<div style="color: var(--text-secondary); text-align: center; margin-top: 20px;">No results found.</div>';
+            return;
+        }
+
+        results.forEach(user => {
+            const item = document.createElement('div');
+            item.classList.add('search-result-item');
+            
+            let removeBtnHtml = query === '' ? '<span class="material-icons-outlined remove-recent">close</span>' : '';
+
+            item.innerHTML = `
+                <img src="${user.img}" alt="${user.username}">
+                <div class="search-result-info">
+                    <span class="username">${user.username}</span>
+                    <span class="fullname">${user.fullname}</span>
+                </div>
+                ${removeBtnHtml}
+            `;
+            searchResultsList.appendChild(item);
+        });
     }
 }
