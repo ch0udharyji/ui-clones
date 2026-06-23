@@ -78,6 +78,35 @@
             </aside>
         </main>
     </div>
+
+    <!-- Story Viewer Modal -->
+    <div class="story-viewer-overlay" id="story-viewer">
+        <div class="story-viewer-header">
+            <div class="story-progress">
+                <div class="progress-bar"><div class="progress-fill" id="story-progress-fill"></div></div>
+            </div>
+            <div class="story-user-info">
+                <img src="" alt="User" id="story-user-img">
+                <span id="story-user-name">username</span>
+                <span class="story-time">2h</span>
+            </div>
+            <div class="story-actions">
+                <span class="material-icons-outlined">play_arrow</span>
+                <span class="material-icons-outlined">volume_up</span>
+                <span class="material-icons-outlined" id="close-story-btn" style="cursor: pointer;">close</span>
+            </div>
+        </div>
+        <div class="story-content">
+            <img src="" alt="Story Content" id="story-content-img">
+            <div class="story-nav left" id="story-nav-prev"></div>
+            <div class="story-nav right" id="story-nav-next"></div>
+        </div>
+        <div class="story-footer">
+            <input type="text" placeholder="Reply to username...">
+            <span class="material-icons-outlined">favorite_border</span>
+            <span class="material-icons-outlined">send</span>
+        </div>
+    </div>
     <!-- Create Post Modal -->
     <div class="modal-overlay" id="create-modal">
         <div class="modal-content">
