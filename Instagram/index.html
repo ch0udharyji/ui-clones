@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1024px-Instagram_icon.png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/800px-Instagram_logo.svg.png" alt="Instagram Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="#" class="active"><span class="material-icons">home</span><span class="nav-text">Home</span></a></li>
+                <li><a href="#"><span class="material-icons-outlined">search</span><span class="nav-text">Search</span></a></li>
+                <li><a href="#"><span class="material-icons-outlined">explore</span><span class="nav-text">Explore</span></a></li>
+                <li><a href="#"><span class="material-icons-outlined">movie</span><span class="nav-text">Reels</span></a></li>
+                <li><a href="#"><span class="material-icons-outlined">chat</span><span class="nav-text">Messages</span></a></li>
+                <li><a href="#"><span class="material-icons-outlined">favorite_border</span><span class="nav-text">Notifications</span></a></li>
+                <li><a href="#"><span class="material-icons-outlined">add_box</span><span class="nav-text">Create</span></a></li>
+                <li><a href="#"><img src="https://i.pravatar.cc/150?img=11" alt="Profile" class="nav-profile-pic"><span class="nav-text">Profile</span></a></li>
+            </ul>
+            <div class="more-menu">
+                <a href="#"><span class="material-icons-outlined">menu</span><span class="nav-text">More</span></a>
+            </div>
+        </nav>
+
+        <!-- Main Feed Content -->
+        <main class="main-content">
+            <div class="feed-container">
+                <!-- Stories Section -->
+                <div class="stories-container">
+                    <div class="story">
+                        <div class="story-ring">
+                            <img src="https://i.pravatar.cc/150?img=11" alt="Your Story">
+                        </div>
+                        <span class="story-user">Your story</span>
+                    </div>
+                </div>
+
+                <!-- Posts Feed -->
+                <div class="posts-feed">
+                    <!-- Post will be dynamically injected or added here -->
+                </div>
+            </div>
+
+            <!-- Right Sidebar (Suggestions) -->
+            <aside class="right-sidebar">
+                <div class="user-profile-mini">
+                    <img src="https://i.pravatar.cc/150?img=11" alt="Profile">
+                    <div class="user-info">
+                        <span class="username">billudev</span>
+                        <span class="fullname">Billu Dev</span>
+                    </div>
+                    <button class="switch-btn">Switch</button>
+                </div>
+                
+                <div class="suggestions-header">
+                    <span>Suggested for you</span>
+                    <a href="#">See All</a>
+                </div>
+
+                <div class="suggestions-list">
+                    <!-- Suggestions will be added here -->
+                </div>
+
+                <div class="footer-links">
+                    <a href="#">About</a> &bull; <a href="#">Help</a> &bull; <a href="#">Press</a> &bull; <a href="#">API</a> &bull; <a href="#">Jobs</a> &bull; <a href="#">Privacy</a> &bull; <a href="#">Terms</a>
+                    <br><br>
+                    <span>&copy; 2026 INSTAGRAM FROM META</span>
+                </div>
+            </aside>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
