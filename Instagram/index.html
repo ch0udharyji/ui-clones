@@ -226,6 +226,51 @@
         </div>
     </div>
 
+    <!-- Post View Modal -->
+    <div class="modal-overlay" id="post-view-modal" style="display: none; z-index: 2500;">
+        <span class="material-icons-outlined" id="close-post-view-btn" style="position: absolute; top: 20px; right: 20px; color: white; font-size: 32px; cursor: pointer;">close</span>
+        <div class="post-view-content">
+            <div class="post-view-left">
+                <img src="" alt="Post Content" id="post-view-img">
+            </div>
+            <div class="post-view-right">
+                <div class="post-view-header">
+                    <img src="https://randomuser.me/api/portraits/men/11.jpg" alt="User">
+                    <span class="username">explore_user</span>
+                    <span class="material-icons-outlined" style="margin-left: auto;">more_horiz</span>
+                </div>
+                <div class="post-view-comments">
+                    <div class="comment">
+                        <img src="https://randomuser.me/api/portraits/women/22.jpg" alt="User">
+                        <div class="comment-text">
+                            <span class="username">jane_doe</span> This is such a cool post! 😍
+                            <div class="comment-meta">
+                                <span>2h</span> <span>12 likes</span> <span>Reply</span>
+                            </div>
+                        </div>
+                        <span class="material-icons-outlined like-comment">favorite_border</span>
+                    </div>
+                    <!-- More dummy comments can be added here dynamically or statically -->
+                </div>
+                <div class="post-view-actions">
+                    <div class="action-icons">
+                        <span class="material-icons-outlined">favorite_border</span>
+                        <span class="material-icons-outlined">chat_bubble_outline</span>
+                        <span class="material-icons-outlined">send</span>
+                        <span class="material-icons-outlined" style="margin-left: auto;">bookmark_border</span>
+                    </div>
+                    <div class="post-likes" id="post-view-likes">1,234 likes</div>
+                    <div class="post-time" style="font-size: 10px; color: var(--text-secondary); text-transform: uppercase;">1 day ago</div>
+                </div>
+                <div class="post-view-add-comment">
+                    <span class="material-icons-outlined">sentiment_satisfied</span>
+                    <input type="text" placeholder="Add a comment...">
+                    <button>Post</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <script src="script.js"></script>
 </body>
 </html>
