@@ -433,13 +433,25 @@ function setupViews() {
         reel.innerHTML = `
             <div class="reel-video-container">
                 <img src="https://picsum.photos/400/800?random=${item.id + 200}" alt="Reel">
-                <div class="reel-actions">
-                    <div class="reel-action"><span class="material-icons-outlined">favorite_border</span><span>${formatNumber(item.likes)}</span></div>
-                    <div class="reel-action"><span class="material-icons-outlined">chat_bubble_outline</span><span>${formatNumber(item.comments)}</span></div>
-                    <div class="reel-action"><span class="material-icons-outlined">send</span></div>
-                    <div class="reel-action"><span class="material-icons-outlined">bookmark_border</span></div>
-                    <div class="reel-action"><span class="material-icons-outlined">more_horiz</span></div>
+                <div class="reel-info-overlay">
+                    <div class="reel-user-info">
+                        <img src="https://randomuser.me/api/portraits/men/${item.id + 10}.jpg" alt="User">
+                        <span>user_${item.id}</span>
+                        <button>Follow</button>
+                    </div>
+                    <div class="reel-caption">
+                        This is an amazing reel! Exploring new places 🌍✈️ #travel #explore
+                    </div>
                 </div>
+                <span class="material-icons" style="position: absolute; bottom: 20px; right: 20px; color: white; background: rgba(0,0,0,0.5); border-radius: 50%; padding: 4px; font-size: 16px;">volume_off</span>
+            </div>
+            <div class="reel-actions">
+                <div class="reel-action"><span class="material-icons-outlined">favorite_border</span><span>${formatNumber(item.likes)}</span></div>
+                <div class="reel-action"><span class="material-icons-outlined">chat_bubble_outline</span><span>${formatNumber(item.comments)}</span></div>
+                <div class="reel-action"><span class="material-icons-outlined">send</span></div>
+                <div class="reel-action"><span class="material-icons-outlined">bookmark_border</span></div>
+                <div class="reel-action"><span class="material-icons-outlined">more_horiz</span></div>
+                <div class="reel-action" style="margin-top: 10px;"><img src="https://randomuser.me/api/portraits/men/${item.id + 10}.jpg" style="width: 24px; height: 24px; border-radius: 4px; border: 2px solid white;"></div>
             </div>
         `;
         reelsContainer.appendChild(reel);
