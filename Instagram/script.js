@@ -52,7 +52,32 @@ document.addEventListener("DOMContentLoaded", () => {
     renderStories();
     renderPosts();
     renderSuggestions();
+    setupModal();
 });
+
+function setupModal() {
+    const createBtn = document.getElementById("create-post-btn");
+    const modal = document.getElementById("create-modal");
+    const closeBtn = document.getElementById("close-modal-btn");
+
+    if (createBtn && modal && closeBtn) {
+        createBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            modal.style.display = "flex";
+        });
+
+        closeBtn.addEventListener("click", () => {
+            modal.style.display = "none";
+        });
+
+        // Close when clicking outside of modal content
+        modal.addEventListener("click", (e) => {
+            if (e.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+    }
+}
 
 function renderStories() {
     const storiesContainer = document.querySelector(".stories-container");
