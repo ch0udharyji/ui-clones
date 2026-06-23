@@ -195,7 +195,7 @@ a {
     margin-bottom: 10px;
 }
 
-.global-back-btn {
+.go-back-btn {
     position: fixed;
     bottom: 20px;
     right: 20px;
@@ -206,12 +206,14 @@ a {
     display: flex;
     align-items: center;
     gap: 8px;
-    font-weight: 600;
+    font-weight: 700;
+    font-size: 15px;
     z-index: 9999;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    transition: transform 0.2s;
+    transition: transform 0.2s, background-color 0.2s;
 }
 
-.global-back-btn:hover {
+.go-back-btn:hover {
     transform: translateY(-2px);
+    color: var(--bg-color);
 }
